@@ -1,0 +1,3303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Illinois 2026 Primary Voter Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Overpass+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg2: #f5f7fa;
+    --bg3: #eef1f5;
+    --border: #dde2ea;
+    --border2: #c8cfd9;
+    --text: #111827;
+    --text2: #4b5563;
+    --text3: #6b7280;
+    --blue: #1d6fcf;
+    --blue-light: #e8f0fb;
+    --blue-mid: #ccdcf7;
+    --blue-dark: #1558b0;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --yellow: #b45309;
+    --yellow-light: #fffbeb;
+    --purple: #7c3aed;
+    --purple-light: #f5f3ff;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lora', serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 64px;
+  }
+
+  .header-logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--bg);
+    background: var(--blue);
+    padding: 8px 18px;
+    border-radius: 8px;
+    white-space: nowrap;
+    letter-spacing: -0.2px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  /* ── DROPDOWN NAV ── */
+  .nav-select-wrap {
+    position: relative;
+    flex: 1;
+    max-width: 560px;
+  }
+
+  .nav-select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--bg2);
+    border: 1.5px solid var(--border2);
+    border-radius: 10px;
+    padding: 10px 40px 10px 18px;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text2);
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .nav-select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px var(--blue-light);
+    color: var(--text);
+  }
+
+  .nav-select-chevron {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text3);
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 32px 100px;
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 0 0 56px;
+  }
+
+  .hero-date {
+    font-family: 'Overpass Mono', monospace;
+    font-size: 12px;
+    color: var(--blue);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--blue);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    color: var(--text2);
+    max-width: 520px;
+    margin: 0 0 48px;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  .hero-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 960px;
+  }
+
+  .hero-card {
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 20px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    text-align: left;
+  }
+
+  .hero-card:hover {
+    border-color: var(--blue);
+    box-shadow: 0 4px 16px rgba(29,111,207,0.1);
+    transform: translateY(-2px);
+  }
+
+  .hero-card .race-label {
+    font-family: 'Overpass Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  .hero-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .hero-card p {
+    font-size: 13px;
+    color: var(--text2);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* ── RACE HEADER ── */
+  .race-header {
+    border-bottom: 2px solid var(--border);
+    padding: 0 0 28px;
+    margin-bottom: 36px;
+  }
+
+  .race-header .race-label {
+    font-family: 'Overpass Mono', monospace;
+    font-size: 11px;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .race-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .race-header p {
+    font-family: 'Lora', serif;
+    color: var(--text2);
+    font-size: 14px;
+    line-height: 1.75;
+    max-width: 820px;
+  }
+
+  /* ── CANDIDATE GRID ── */
+  .candidate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+  }
+
+  /* ── CANDIDATE CARD ── */
+  .ccard {
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .ccard:hover {
+    border-color: var(--blue);
+    box-shadow: 0 4px 20px rgba(29,111,207,0.08);
+  }
+
+  .ccard-header {
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--bg2);
+  }
+
+  .ccard-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .ccard-title {
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    color: var(--text2);
+    margin-top: 4px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ── RATING BADGES ── */
+  .rating-badge {
+    flex-shrink: 0;
+    font-family: 'Overpass Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .r1 { background: var(--green-light); color: var(--green); border: 1px solid #bbf7d0; }
+  .r2 { background: var(--blue-light);  color: var(--blue);  border: 1px solid var(--blue-mid); }
+  .r3 { background: var(--yellow-light);color: var(--yellow);border: 1px solid #fde68a; }
+  .r4 { background: var(--purple-light);color: var(--purple);border: 1px solid #ddd6fe; }
+  .r5 { background: var(--red-light);   color: var(--red);   border: 1px solid #fecaca; }
+
+  /* ── FORCE FONT INHERITANCE ON FORM ELEMENTS ── */
+  input, select, textarea, button {
+    font-family: inherit;
+  }
+
+  /* ── CARD BODY ── */
+  .ccard-body {
+    padding: 18px 20px 22px;
+    font-family: 'Lora', serif;
+  }
+
+  .ccard-section {
+    margin-bottom: 16px;
+  }
+
+  .ccard-section:last-child { margin-bottom: 0; }
+
+  .ccard-section-title {
+    font-family: 'Overpass Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text3);
+    margin-bottom: 7px;
+    font-weight: 600;
+  }
+
+  .ccard-section p {
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+
+  .ccard-section strong { color: var(--text); font-weight: 600; }
+
+  /* ── LISTS ── */
+  .ccard-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .ccard-section ul li {
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    color: var(--text2);
+    line-height: 1.65;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .ccard-section ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-weight: 600;
+  }
+
+  .donor-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .donor-list li {
+    font-family: 'Lora', serif;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text2);
+  }
+
+  .donor-list li:last-child { border-bottom: none; }
+
+  /* ── CONTROVERSY LIST ── */
+  .controversy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .controversy-list li {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+    padding: 9px 12px;
+    background: var(--red-light);
+    border-left: 3px solid var(--red);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .controversy-list li strong { color: var(--red); }
+
+  /* ── PRESS LINKS ── */
+  .press-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .press-link {
+    font-family: 'Overpass Mono', monospace;
+    font-size: 10px;
+    color: var(--blue);
+    text-decoration: none;
+    background: var(--blue-light);
+    border: 1px solid var(--blue-mid);
+    padding: 3px 9px;
+    border-radius: 5px;
+    transition: background 0.15s, border-color 0.15s;
+    font-weight: 500;
+  }
+
+  .press-link:hover {
+    background: var(--blue-mid);
+    border-color: var(--blue);
+  }
+
+  /* ── FUNDRAISING BAR ── */
+  .fundraise-label {
+    font-family: 'Overpass Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .fundraise-bar {
+    height: 6px;
+    background: var(--bg3);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .fundraise-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--blue), #60a5fa);
+    transition: width 0.8s ease;
+  }
+
+  /* ── TIER DIVIDER ── */
+  .tier-divider {
+    margin: 36px 0 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .tier-divider span {
+    font-family: 'Overpass Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text3);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  .tier-divider::before, .tier-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text2);
+    font-family: 'Lora', serif;
+  }
+
+  /* ── SUMMARY TABLE ── */
+  .summary-table-wrap {
+    overflow-x: auto;
+    margin-top: 8px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+  }
+
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .summary-table th {
+    text-align: left;
+    padding: 11px 16px;
+    font-family: 'Overpass Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text3);
+    border-bottom: 1.5px solid var(--border);
+    background: var(--bg2);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  .summary-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text2);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:hover td { background: var(--bg2); }
+
+  .summary-table td:first-child {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ── ENDORSEMENT PILL ── */
+  .endorsement {
+    display: inline-block;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 11px;
+    color: var(--text2);
+    margin: 2px;
+  }
+
+  /* ── OVERVIEW GRID (home page) ── */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .overview-card {
+    background: var(--bg2);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+  }
+
+  .overview-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  .overview-card p {
+    font-size: 13.5px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .scale-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .scale-row:last-child { margin-bottom: 0; }
+
+  .scale-desc {
+    font-size: 12px;
+    color: var(--text3);
+    font-family: 'Lora', serif;
+  }
+
+  /* ── SECTION LABEL (used in Senate cards with old class name) ── */
+  .section-label {
+    font-family: 'Overpass Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text3);
+    margin-bottom: 7px;
+    font-weight: 600;
+  }
+
+  /* ── CONTROVERSY BLOCK (old style used in Senate section) ── */
+  .controversy-block {
+    background: var(--red-light);
+    border-left: 3px solid var(--red);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  .controversy-block strong {
+    color: var(--red);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Overpass Mono', monospace;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    header { padding: 0 16px; }
+    main { padding: 32px 16px 80px; }
+    .ccard-header { flex-direction: column; }
+    .candidate-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 36px; }
+    .nav-select-wrap { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo" onclick="showPage('home')">Illinois Progressive Voter Guide</div>
+  <div class="nav-select-wrap">
+    <select class="nav-select" id="race-select" onchange="showPage(this.value)">
+      <option value="home">Select Race</option>
+      <option value="senate">🗳 U.S. Senate</option>
+      <option value="comptroller">💼 Comptroller</option>
+      <option value="congress7">🏛 IL-7 Congress</option>
+      <option value="congress2">🏛 IL-2 Congress</option>
+      <option value="congress9">🏛 IL-9 Congress</option>
+      <option value="congress4">🏛 IL-4 Congress</option>
+      <option value="congress8">🏛 IL-8 Congress</option>
+      <option value="ccbp">🏙 Cook County Board President</option>
+      <option value="ccassessor">🏙 Cook County Assessor</option>
+    </select>
+    <svg class="nav-select-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════════ HOME ═══════════════════════════════════ -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-date">March 17 · Illinois Democratic Primary</div>
+    <h1>2026 Illinois Progressive<br>Primary Voter Guide</h1>
+    <p>Comprehensive candidate profiles, policy ratings, donor data, and controversy press for Illinois Democratic primary races. All races conclude March 17, 2026. More races being added — check back.</p>
+    <div class="hero-cards">
+      <div class="hero-card" onclick="showPage('senate')">
+        <div class="race-label">🗳 U.S. Senate</div>
+        <h3>Illinois Senate Race</h3>
+        <p>10 candidates · Replacing retiring Sen. Dick Durbin · Statewide</p>
+      </div>
+      <div class="hero-card" onclick="showPage('comptroller')">
+        <div class="race-label">💼 IL Comptroller</div>
+        <h3>State Comptroller</h3>
+        <p>4 candidates · Replacing retiring Comptroller Susana Mendoza</p>
+      </div>
+      <div class="hero-card" onclick="showPage('congress7')">
+        <div class="race-label">🏛 U.S. House IL-7</div>
+        <h3>7th Congressional District</h3>
+        <p>13 candidates · Replacing retiring Rep. Danny Davis · West/South Side Chicago + suburbs</p>
+      </div>
+      <div class="hero-card" onclick="showPage('congress2')">
+        <div class="race-label">🏛 U.S. House IL-2</div>
+        <h3>2nd Congressional District</h3>
+        <p>11 candidates · Replacing Robin Kelly (running for Senate) · South Side + south suburbs</p>
+      </div>
+      <div class="hero-card" onclick="showPage('congress9')">
+        <div class="race-label">🏛 U.S. House IL-9</div>
+        <h3>9th Congressional District</h3>
+        <p>15 candidates · Replacing retiring Rep. Jan Schakowsky · North Side + North Shore</p>
+      </div>
+      <div class="hero-card" onclick="showPage('congress4')">
+        <div class="race-label">🏛 U.S. House IL-4</div>
+        <h3>4th Congressional District</h3>
+        <p>1 candidate on ballot · Sole Democrat Patty Garcia (Chuy Garcia's chief of staff) · SW Side Chicago + western suburbs</p>
+      </div>
+      <div class="hero-card" onclick="showPage('congress8')">
+        <div class="race-label">🏛 U.S. House IL-8</div>
+        <h3>8th Congressional District</h3>
+        <p>8 candidates · Replacing Sen.-hopeful Raja Krishnamoorthi · NW suburbs (Schaumburg, Elgin, Palatine)</p>
+      </div>
+      <div class="hero-card" onclick="showPage('ccbp')">
+        <div class="race-label">🏙 Cook County</div>
+        <h3>County Board President</h3>
+        <p>Toni Preckwinkle (5th term) vs. Ald. Brendan Reilly (42nd) · Progressive machine vs. pro-business moderate · $10B budget, 22,000+ employees</p>
+      </div>
+      <div class="hero-card" onclick="showPage('ccassessor')">
+        <div class="race-label">🏙 Cook County</div>
+        <h3>County Assessor</h3>
+        <p>Fritz Kaegi (incumbent, 3rd term) vs. Pat Hynes (former Kaegi employee) · Property tax equity vs. commercial fairness</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <h3>📊 Rating Scale</h3>
+      <div class="scale-row"><span class="rating-badge r1">1 — Most Progressive</span><span class="scale-desc">Medicare for All, abolish ICE, Green New Deal</span></div>
+      <div class="scale-row"><span class="rating-badge r2">2 — Progressive</span><span class="scale-desc">Broad progressive platform with nuance</span></div>
+      <div class="scale-row"><span class="rating-badge r3">3 — Center-Left</span><span class="scale-desc">ACA expansion, moderate on some issues</span></div>
+      <div class="scale-row"><span class="rating-badge r4">4 — Center</span><span class="scale-desc">Bipartisan-leaning, technocratic, business-friendly</span></div>
+      <div class="scale-row"><span class="rating-badge r5">5 — Most Centrist</span><span class="scale-desc">Establishment, fiscally conservative Democrat</span></div>
+    </div>
+    <div class="overview-card">
+      <h3>⭐ Donor Flag Key</h3>
+      <p style="margin-bottom:10px">Donors marked with <strong style="color:var(--red)">⭐</strong> are associated with conservative politics, the Republican Party, or right-leaning organizations.</p>
+      <p>This includes: direct Republican donors, GOP party officials, organizations known for primarily funding Republican candidates, and individuals with documented conservative political activity.</p>
+    </div>
+    <div class="overview-card">
+      <h3>⚠️ Donor Data Note</h3>
+      <p>Donor data for U.S. Senate and IL-7 congressional candidates is drawn from <strong>FEC filings</strong> as analyzed and reported in press. For the <strong>Comptroller race</strong>, campaign finance is filed with the Illinois State Board of Elections (not FEC). In both cases, only press-confirmed named donors are listed. Full ranked top-10 lists are only available via direct database access.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ SENATE ═══════════════════════════════════ -->
+<div id="page-senate" class="page">
+  <div class="race-header">
+    <div class="race-tag">🗳 U.S. Senate — Illinois · March 17, 2026 Democratic Primary</div>
+    <h2>Illinois U.S. Senate Race</h2>
+    <p>Replacing retiring Sen. Dick Durbin, who held the seat for 28 years. 10 Democrats are competing. The primary winner will face the Republican nominee in November in what is expected to be a safely Democratic seat. Raja Krishnamoorthi leads in fundraising (~$30.5M), with Robin Kelly and Juliana Stratton as the other major contenders.</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="rating-badge r1">1</span> Most Progressive</div>
+    <div class="legend-item"><span class="rating-badge r2">2</span> Progressive</div>
+    <div class="legend-item"><span class="rating-badge r3">3</span> Center-Left</div>
+    <div class="legend-item"><span class="rating-badge r4">4</span> Center</div>
+    <div class="legend-item"><span style="color:var(--red)">⭐</span> Conservative-linked donor</div>
+  </div>
+
+  <div class="tier-divider"><span>Tier 1 — Major Candidates</span></div>
+  <div class="candidate-grid">
+
+    <!-- KRISHNAMOORTHI -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Raja Krishnamoorthi</div>
+          <div class="ccard-title">U.S. Rep., IL-8 · FEC ID: S6IL00482</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Expand healthcare affordability (not Medicare for All)</li>
+            <li>Abolish "Trump's ICE" through reform (not outright abolition)</li>
+            <li>Raise minimum wage to $17/hr</li>
+            <li>First-time homebuyer tax credits; free school lunch</li>
+            <li>Block corporate mergers; congressional stock trading ban; term limits</li>
+            <li>Two-state solution on Gaza; refuses to apply "genocide" label; China hawk</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$30.5M raised — dominant fundraiser in the field</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:100%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">Kirkland &amp; Ellis attorneys (aggregate)</span><span class="donor-note">~$1.4M career total</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">Sanford Perl (Kirkland &amp; Ellis)</span><span class="donor-note">$9,700; gave $142,500 to RNC</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">Shyam Sankar (Palantir CTO)</span><span class="donor-note">$29,300 — later returned; ICE contractor</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">4</span><span class="donor-name">Marc Andreessen</span><span class="donor-note">Trump adviser</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">5</span><span class="donor-name">Michael Pillsbury (Heritage Foundation)</span><span class="donor-note">$5K; Project 2025-linked</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">6</span><span class="donor-name">Brij Sharma (Republican Hindu Coalition)</span><span class="donor-note">$6,500+</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">7</span><span class="donor-name">Trump/MAGA donors (aggregate)</span><span class="donor-note">$90K+ total confirmed</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">8</span><span class="donor-name">Corporate PACs (aggregate)</span><span class="donor-note">$120K+: Google, Amazon, Microsoft, Lockheed Martin, Union Pacific, NextEra, T-Mobile, Booz Allen Hamilton</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">9</span><span class="donor-name">Niranjan Shah / PNS Management</span><span class="donor-note">Blagojevich scandal-linked</span></li>
+            <li><span class="donor-num">10</span><span class="donor-name">Real estate / tech industry professionals</span><span class="donor-note">Not individually itemized</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block">
+            <strong>Key Controversies</strong>
+            Accepted $90K+ from Trump/MAGA donors; $120K+ from corporate PACs including defense contractors; ties to Hindu nationalist donors; returned donation from Palantir CTO (ICE contractor). Attack ads over Gaza position.
+          </div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://chicagotribune.com/2026/03/10/raja-krishnamoorthi-fundraising-illinois-senate/" target="_blank">Chicago Tribune</a>
+            <a class="press-link" href="https://chicago.suntimes.com/the-watchdogs/2025/12/08/raja-krishnamoorthi-senate-campaign-donors-trump-allies-maga-money" target="_blank">Sun-Times Watchdogs</a>
+            <a class="press-link" href="https://thenation.com/article/politics/illinois-senate-raja-krishnamoorthi-robin-kelly-julianna-stratton/" target="_blank">The Nation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROBIN KELLY -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Robin Kelly</div>
+          <div class="ccard-title">U.S. Rep., IL-2</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Medicare for All</li>
+            <li>Abolish ICE and dismantle DHS</li>
+            <li>Tax billionaires; raise min wage to $17/hr</li>
+            <li>Cap childcare costs; strengthen Social Security</li>
+            <li>Called Israel's actions in Gaza "genocide" (only frontrunner to do so)</li>
+            <li>Pledged to reject AIPAC money; filed impeachment articles against DHS Sec. Noem</li>
+            <li>John Lewis Voting Rights Act; codify DOJ independence</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$3.3M raised</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:11%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">Congressional Black Caucus PAC</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">BradyPAC (gun safety)</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">Sen. Cory Booker (NJ)</span><span class="donor-note">Individual contributor/endorser</span></li>
+            <li><span class="donor-num">4</span><span class="donor-name">Sen. Chris Murphy (CT)</span><span class="donor-note">Individual contributor/endorser</span></li>
+            <li><span class="donor-num">5–10</span><span class="donor-name">Not individually itemized in press</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block">
+            <strong>Key Controversies</strong>
+            Accepted AIPAC PAC donations in March–April 2025 before pledging to reject them. Gov. Pritzker pushed her out as IL Democratic Party chair in 2022.
+          </div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://nbcchicago.com/illinois-election-2026/robin-kelly-lays-out-her-case-in-2026-illinois-senate-primary/3904705/" target="_blank">NBC Chicago</a>
+            <a class="press-link" href="https://timesofisrael.com/democratic-candidate-running-for-us-senate-in-illinois-says-israel-committed-genocide/" target="_blank">Times of Israel</a>
+            <a class="press-link" href="https://jta.org/2026/02/20/politics/robin-kelly-running-for-senate-in-illinois-says-israel-committed-genocide" target="_blank">JTA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATTON -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Juliana Stratton</div>
+          <div class="ccard-title">Lt. Governor of Illinois</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Medicare for All; abolish ICE outright</li>
+            <li>$25/hour federal minimum wage</li>
+            <li>Tax millionaires and billionaires; expand EITC</li>
+            <li>Birth Equity Initiative; reproductive rights; gun safety</li>
+            <li>John Lewis Voting Rights Act</li>
+            <li>Pledged no corporate PAC money (but affiliated PAC received corporate funds)</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$4M campaign + ~$6.3M Illinois Future PAC (Pritzker-funded)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:33%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">JB Pritzker</span><span class="donor-note">$5M to IL Future PAC + $3,500 direct</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">Jennifer Pritzker</span><span class="donor-note">$1.1M to IL Future PAC</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">Jerry Reinsdorf (White Sox/Bulls)</span><span class="donor-note">Known Republican donor</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">4</span><span class="donor-name">CoreCivic (private prison/ICE contractor)</span><span class="donor-note">$135K+ to affiliated PAC</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">5</span><span class="donor-name">PNS Management / Niranjan Shah</span><span class="donor-note">$20K to PAC; Blagojevich scandal-linked</span></li>
+            <li><span class="donor-num">6–10</span><span class="donor-name">Not individually itemized in press</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block">
+            <strong>Key Controversies</strong>
+            Pledged grassroots-only funding but received millions from Pritzker family (82% of IL Future PAC). Affiliated PAC received $135K+ from CoreCivic (private prison/ICE contractor) — contradicting her platform. Congressional Black Caucus accused Pritzker of "heavy-handing" the race.
+          </div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Endorsements</div>
+          <p>Gov. JB Pritzker, Sen. Tammy Duckworth, IL House Speaker Welch, Sen. Elizabeth Warren, IL Federation of Teachers</p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://foxnews.com/politics/wealthy-elites-bankroll-dem-senate-candidate-who-has-repeatedly-touted-grassroots-campaign" target="_blank">Fox News</a>
+            <a class="press-link" href="https://capitolnewsillinois.com/news/pritzker-drops-5m-to-boost-lt-gov-juliana-stratton-in-senate-race/" target="_blank">Capitol News IL</a>
+            <a class="press-link" href="https://capitolnewsillinois.com/news/congressional-black-caucus-accuses-pritzker-of-heavy-handing-senate-race/" target="_blank">CBC Accusation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tier 1 -->
+
+  <div class="tier-divider"><span>Tier 2 — Lower-Profile Senate Candidates</span></div>
+  <div class="candidate-grid">
+
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Kevin Ryan</div><div class="ccard-title">CPS Teacher / Marine Veteran</div></div>
+        <span class="rating-badge r1">1 — Most Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section"><div class="section-label">Overview</div><p>Working-class progressive. No significant fundraising (~$84K). No major controversies. Platform centered on working families and labor rights.</p></div>
+        <div class="ccard-section"><div class="section-label">Fundraising</div><div class="fundraise-label">~$84K raised</div><div class="fundraise-bar"><div class="fundraise-fill" style="width:2%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Steve Botsford Jr.</div><div class="ccard-title">Business Owner</div></div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section"><div class="section-label">Overview</div><p>Self-funded business owner. ~$360K raised, majority self-funded. Center-left policy stances. No major controversies.</p></div>
+        <div class="ccard-section"><div class="section-label">Fundraising</div><div class="fundraise-label">~$360K raised (mostly self-funded)</div><div class="fundraise-bar"><div class="fundraise-fill" style="width:4%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Bryan Maxwell</div><div class="ccard-title">U of I Researcher</div></div>
+        <span class="rating-badge r1">1 — Anti-War / Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section"><div class="section-label">Overview</div><p>Anti-war, progressive platform. Minimal fundraising. No major controversies identified.</p></div>
+      </div>
+    </div>
+
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Jonathan Dean</div><div class="ccard-title">Activist / Attorney</div></div>
+        <span class="rating-badge r1">1 — Most Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section"><div class="section-label">Overview</div><p>Activist and attorney. Minimal fundraising. No major controversies identified.</p></div>
+      </div>
+    </div>
+
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Awisi A. Bustos</div><div class="ccard-title">CEO, IL Alliance of Boys &amp; Girls Clubs</div></div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section"><div class="section-label">Overview</div><p>Nonprofit executive. Minimal fundraising. Daughter-in-law of former Rep. Cheri Bustos, who is <strong>not</strong> supporting her amid an ongoing divorce proceeding.</p></div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block"><strong>Note</strong>Estranged from her former political family connection — Cheri Bustos is not supporting her candidacy.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Christopher Swan</div><div class="ccard-title">Deacon / Feeding America</div></div>
+        <span class="rating-badge r1">1 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section"><div class="section-label">Overview</div><p>Deacon and nonprofit leader with Feeding America. Minimal fundraising. No major controversies identified.</p></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ COMPTROLLER ═══════════════════════════════════ -->
+<div id="page-comptroller" class="page">
+  <div class="race-header">
+    <div class="race-tag">💼 Illinois State Comptroller · March 17, 2026 Democratic Primary</div>
+    <h2>Illinois Comptroller Race</h2>
+    <p>Replacing retiring Comptroller Susana Mendoza. The Comptroller is Illinois' chief financial officer — pays state bills, manages fiscal accounts, records transactions, and chairs the State Employees' Retirement System Board. The Republican general election opponent is Bryan Drew (attorney, Benton, IL). <strong>Note:</strong> Campaign finance is filed with the Illinois State Board of Elections (ILSBE), not the FEC. Named donors below are press-confirmed only.</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="rating-badge r1">1</span> Most Progressive</div>
+    <div class="legend-item"><span class="rating-badge r2">2</span> Progressive</div>
+    <div class="legend-item"><span class="rating-badge r3">3</span> Center-Left</div>
+    <div class="legend-item"><span class="rating-badge r5">5</span> Most Centrist</div>
+    <div class="legend-item"><span style="color:var(--red)">⭐</span> Conservative-linked donor</div>
+  </div>
+
+  <div class="candidate-grid">
+
+    <!-- VILLA -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Karina Villa</div>
+          <div class="ccard-title">IL State Senator, 25th District (West Chicago)</div>
+        </div>
+        <span class="rating-badge r1">1 — Most Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Background</div>
+          <p>Former school social worker. Chair, Senate Progressive Caucus. No professional financial background (cited as main opponent attack).</p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Digital advertising tax; graduated income tax constitutional amendment</li>
+            <li>Close corporate loopholes</li>
+            <li>Use procurement power against ICE/DHS/CBP vendors</li>
+            <li>Prioritize payments protecting vulnerable populations</li>
+            <li>Prevailing Wage Officer and Labor Law Compliance Liaison</li>
+            <li>Support minority/women-owned small businesses</li>
+            <li>Keep comptroller and treasurer offices separate</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Endorsements</div>
+          <p>
+            <span class="endorsement">Sen. Bernie Sanders</span>
+            <span class="endorsement">Senate President Harmon</span>
+            <span class="endorsement">Rep. Delia Ramirez</span>
+            <span class="endorsement">Chicago Teachers Union</span>
+            <span class="endorsement">SEIU</span>
+            <span class="endorsement">IL Federation of Teachers</span>
+            <span class="endorsement">Chuy Garcia</span>
+          </p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">IL Senate Democratic Fund / Senate Pres. Harmon</span><span class="donor-note">$50,000+ aggregate</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">Rep. Delia Ramirez</span><span class="donor-note">$50,000+</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">SEIU PAC</span><span class="donor-note">"Tens of thousands"</span></li>
+            <li><span class="donor-num">4</span><span class="donor-name">IL Federation of Teachers PAC</span></li>
+            <li><span class="donor-num">5</span><span class="donor-name">Chicago Teachers Union PAC</span></li>
+            <li><span class="donor-num">6–10</span><span class="donor-name">Other union PACs and progressive individual donors</span><span class="donor-note">Not individually itemized</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block">
+            <strong>Key Controversies</strong>
+            No financial background (opponents' main attack). Tribune editorial criticized her ICE procurement proposal as unenforceable and beyond the office's scope.
+          </div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://chicagotribune.com/2026/03/09/bernie-sanders-karina-villa-illinois-comptroller/" target="_blank">Tribune — Sanders endorsement</a>
+            <a class="press-link" href="https://chicagotribune.com/2026/02/17/editorial-margaret-croke-illinois-comptroller-democratic-primary/" target="_blank">Tribune Editorial</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOLLY KIM -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Holly Kim</div>
+          <div class="ccard-title">Lake County Treasurer (two terms)</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive / Pragmatic</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Background</div>
+          <p>First woman elected Lake County Treasurer. First Korean-American woman elected in Illinois. Office processes $3.2B+ in payments/year; generated $23M+ in investment income FY2023.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Experience-first platform; maintain/improve state credit rating (upgraded 10x under Mendoza)</li>
+            <li>Graduated income tax; phase out paper checks; digital signatures, cybersecurity upgrades</li>
+            <li>Expand prevailing wage enforcement</li>
+            <li>Keep comptroller and treasurer offices separate</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Endorsements</div>
+          <p>
+            <span class="endorsement">Comptroller Susana Mendoza</span>
+            <span class="endorsement">Rep. Brad Schneider</span>
+            <span class="endorsement">Personal PAC</span>
+            <span class="endorsement">Evanston Mayor Daniel Biss</span>
+          </p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">Personal PAC (reproductive rights org.)</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">Rep. Brad Schneider PAC</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">Evanston Mayor Daniel Biss</span></li>
+            <li><span class="donor-num">4–10</span><span class="donor-name">Various unions and local officials</span><span class="donor-note">Not individually itemized</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block">
+            <strong>Crypto Token Controversy</strong>
+            Campaign used ~$8,300 in donor funds to purchase CHKN tokens (a cryptocurrency she helped launch). By Dec. 31, 2025, holdings were worth ~$34.59. Kim defended it as a "modest experiment." Also: 2023 Lake County memo cited delays in publishing required investment reports.
+          </div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://hoodline.com/2026/02/chicken-token-meltdown-scrambles-illinois-comptroller-primary/" target="_blank">Hoodline — CHKN Tokens</a>
+            <a class="press-link" href="https://capitolnewsillinois.com/news/comptroller-susana-mendoza-endorses-holly-kim-to-be-her-successor/" target="_blank">Capitol News IL</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KIFOWIT -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Stephanie A. Kifowit</div>
+          <div class="ccard-title">IL State Rep., 84th District (Oswego) · since 2013</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left / Independent</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Background</div>
+          <p>Longest-tenured legislator in the race. Marine Corps veteran. Former registered financial advisor. Master's in Public Administration with Government Finance minor.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Expand Prevailing Wage Division into full "Labor Division" with pre-payment audits</li>
+            <li>Increase state reserves to $5B+; cut corporate-benefiting spending</li>
+            <li>Graduated income tax; modernize office technology</li>
+            <li>Executive order prohibiting AI/automation from eliminating positions</li>
+            <li>Open to combining comptroller and treasurer offices if sufficient safeguards exist</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Endorsements</div>
+          <p>
+            <span class="endorsement">United Steelworkers District 7</span>
+            <span class="endorsement">Multiple labor unions</span>
+            <span class="endorsement">Veterans groups</span>
+            <span class="endorsement">Suburban Democrats</span>
+          </p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">United Steelworkers District 7 PAC</span><span class="donor-note">Major labor endorser/contributor</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">Own legislative campaign fund transfer</span><span class="donor-note">~$72,000</span></li>
+            <li><span class="donor-num">3–10</span><span class="donor-name">Various labor unions and veterans groups</span><span class="donor-note">Not individually itemized</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block">
+            <strong>2018 Floor Comment</strong>
+            Made a comment on the House floor about a "broth of Legionella" that generated controversy; later apologized. Opponent Holly Kim alleged Madigan network ties — disputed; Kifowit actually called for Madigan's resignation and tried to replace him as Speaker in 2020.
+          </div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://chicagotribune.com/2025/08/11/stephanie-kifowit-running-comptroller/" target="_blank">Tribune — announcement</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CROKE -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Margaret Croke</div>
+          <div class="ccard-title">IL State Rep., 12th District (Chicago/Lincoln Park) · Age 34</div>
+        </div>
+        <span class="rating-badge r5">5 — Most Centrist</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Background</div>
+          <p>Former Deputy Chief of Staff, IL Dept. of Commerce &amp; Economic Opportunity. Former Pritzker campaign staffer and transition team member. Board member of Pritzker's Think Big America 501(c)(4). Cook County Democratic Party Central Committeewoman.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Fiscal responsibility and balanced budgets</li>
+            <li>Modernize office software for end-to-end spending transparency</li>
+            <li>Expand rainy day reserves; consider refinancing state pension debt</li>
+            <li>Graduated income tax</li>
+            <li>Keep comptroller and treasurer offices separate</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Endorsements</div>
+          <p>
+            <span class="endorsement">Gov. JB Pritzker</span>
+            <span class="endorsement">House Speaker Chris Welch</span>
+            <span class="endorsement">Cook County Democratic Party</span>
+            <span class="endorsement">30+ state House Democrats</span>
+            <span class="endorsement">Chicago Tribune Editorial Board</span>
+          </p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">Gov. JB Pritzker</span><span class="donor-note">$72,800 max contribution (Feb. 2026)</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">Michael &amp; Cari Sacks</span><span class="donor-note">Democratic megadonors; Michael Sacks = CEO of GCM Grosvenor</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">Enova International</span><span class="donor-note">~$14,000; payday lender accused of 100–300% APR loans</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">4</span><span class="donor-name">Cook County Democratic Party</span></li>
+            <li><span class="donor-num">5</span><span class="donor-name">Rep. Raja Krishnamoorthi</span></li>
+            <li><span class="donor-num">6</span><span class="donor-name">Rep. Nikki Budzinski</span></li>
+            <li><span class="donor-num">7</span><span class="donor-name">Former Rep. Cheri Bustos</span></li>
+            <li><span class="donor-num">8–10</span><span class="donor-name">Various trade unions and banks</span><span class="donor-note">Not individually itemized</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block">
+            <strong>Key Controversies</strong>
+            Received $72,800 max contribution from Gov. Pritzker — outgoing Comptroller Mendoza publicly questioned her independence. Villa alleged donations from "right wing MAGA donors." Received ~$14,000 from Enova International (payday lender, APRs 100–300%). Role on Pritzker's Think Big America board also cited as independence concern.
+          </div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://chicagotribune.com/2026/02/17/editorial-margaret-croke-illinois-comptroller-democratic-primary/" target="_blank">Tribune Editorial (endorsement)</a>
+            <a class="press-link" href="https://chicago.suntimes.com/columnists/2026/02/27/contributions-state-comptroller-susana-mendoza-pritzker-croke-villa-kifowit-kim" target="_blank">Sun-Times — Pritzker donations</a>
+            <a class="press-link" href="https://abc7chicago.com/post/primary-election-2026-illinois-comptroller-candidates-margaret-croke-karina-villa-holly-kim-stephanie-kifowit-appeal-voters/18686085/" target="_blank">ABC7 Chicago</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end comptroller grid -->
+
+  <!-- Summary table -->
+  <div class="tier-divider"><span>Quick Comparison</span></div>
+  <div class="summary-table-wrap">
+    <table class="summary-table">
+      <thead><tr>
+        <th>Candidate</th><th>Background</th><th>Rating</th><th>Signature Issue</th><th>Lead Endorser</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Karina Villa</td><td>State Senator / Social Worker</td><td><span class="rating-badge r1">1</span></td><td>Progressive revenue, ICE procurement ban</td><td>Bernie Sanders, CTU</td></tr>
+        <tr><td>Holly Kim</td><td>Lake County Treasurer</td><td><span class="rating-badge r2">2</span></td><td>Fiscal experience, credit rating, independence</td><td>Comptroller Mendoza</td></tr>
+        <tr><td>Stephanie Kifowit</td><td>State Rep / Marine / Financial Advisor</td><td><span class="rating-badge r3">3</span></td><td>Labor enforcement division, independence</td><td>United Steelworkers</td></tr>
+        <tr><td>Margaret Croke</td><td>State Rep / Pritzker ally</td><td><span class="rating-badge r5">5</span></td><td>Fiscal responsibility, modernization</td><td>Gov. Pritzker, Tribune</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ CONGRESS IL-7 ═══════════════════════════════════ -->
+<div id="page-congress7" class="page">
+  <div class="race-header">
+    <div class="race-tag">🏛 U.S. House — Illinois 7th Congressional District · March 17, 2026 Democratic Primary</div>
+    <h2>Illinois 7th Congressional District</h2>
+    <p>Replacing retiring Rep. Danny Davis, who held the seat since 1997. 13 Democrats are running. The district spans Chicago's South and West Sides through western suburbs including Oak Park, Hillside, and Broadview. Cook PVI: D+34 — the primary winner is virtually certain to become the next representative. Davis has endorsed La Shawn Ford. A major subtheme of the race is AIPAC's $1.5M–$2.8M intervention on behalf of Conyears-Ervin.</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="rating-badge r1">1</span> Most Progressive</div>
+    <div class="legend-item"><span class="rating-badge r2">2</span> Progressive</div>
+    <div class="legend-item"><span class="rating-badge r3">3</span> Center-Left</div>
+    <div class="legend-item"><span class="rating-badge r4">4</span> Center</div>
+    <div class="legend-item"><span style="color:var(--red)">⭐</span> Conservative-linked donor</div>
+  </div>
+
+  <div class="tier-divider"><span>Tier 1 — Top Candidates by Fundraising &amp; Press Attention</span></div>
+  <div class="candidate-grid">
+
+    <!-- FRIEDMAN -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Jason Friedman</div>
+          <div class="ccard-title">Real estate developer (Friedman Properties, River North)</div>
+        </div>
+        <span class="rating-badge r4">4 — Center</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Jobs and trade school investment; pro-union; improve education funding</li>
+            <li>Constituent services-focused; affordable housing and infrastructure</li>
+            <li>Bring federal dollars back to Chicago</li>
+            <li>Signed letter condemning Chicago's Gaza cease-fire resolution</li>
+            <li>Has not championed Medicare for All or other progressive flagship policies</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$1.8M raised — dominant fundraiser (nearly 3x his nearest rival)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:100%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">Finance, real estate &amp; law professionals</span><span class="donor-note">61% of all donors, ~$1.1M aggregate</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">Craig Duchossois</span><span class="donor-note">Chicago businessman/philanthropist</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">Mario Tricoci</span><span class="donor-note">Hair salon/spa mogul</span></li>
+            <li><span class="donor-num">4</span><span class="donor-name">Rich &amp; Martha Melman</span><span class="donor-note">Lettuce Entertain You restaurateur</span></li>
+            <li><span class="donor-num">5</span><span class="donor-name">29+ AIPAC-linked donors</span><span class="donor-note">~$140,000 aggregate via pro-Israel donor network</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">6</span><span class="donor-name">Restaurant/hospitality sector</span><span class="donor-note">Six-figure aggregate</span></li>
+            <li><span class="donor-num">7</span><span class="donor-name">Healthcare sector</span><span class="donor-note">Six-figure aggregate</span></li>
+            <li><span class="donor-num">8</span><span class="donor-name">Senior housing/nursing home interests</span><span class="donor-note">~$128,000</span></li>
+            <li><span class="donor-num">9–10</span><span class="donor-name">Not individually named in press</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block">
+            <strong>AIPAC / Pro-Israel Donor Network</strong>
+            29+ donors who gave to his campaign also gave to AIPAC PAC. Multiple opponents accused him of being beholden to pro-Israel financial networks. AIPAC eventually shifted its super PAC support to Conyears-Ervin.
+          </div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://wbez.org/politics/2026/02/12/river-north-developer-jason-friedman-holds-big-fundraising-lead-in-democratic-fight-to-replace-chicago-u-s-rep-danny-davis-conyears-ervin-ford" target="_blank">WBEZ — Fundraising lead</a>
+            <a class="press-link" href="https://forestparkreview.com/2026/02/17/aipac-cash-to-conyears-ervin-in-7th-district-sparks-upset/" target="_blank">Forest Park Review — AIPAC</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONYEARS-ERVIN -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Melissa Conyears-Ervin</div>
+          <div class="ccard-title">Chicago City Treasurer (2nd term); former IL State Rep.</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Expand homeownership pathways; grow small businesses; manufacturing jobs</li>
+            <li>Wealth tax on billionaires; close loopholes; lower healthcare costs</li>
+            <li>Support apprenticeships and fair wages; fund violence-prevention programs</li>
+            <li>Protect Medicare, Medicaid, SNAP from Trump cuts</li>
+            <li>Has not staked out hard left positions on Israel/Gaza</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$215K campaign + $1.5M–$2.8M AIPAC/UDP outside spending</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:30%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">⭐ United Democracy Project (AIPAC super PAC)</span><span class="donor-note">$1.5M–$2.8M in independent TV ads supporting her</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">Chicago Teachers Union PAC</span><span class="donor-note">$72,800 to her Democratic committeeman fund</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">Firefighters Local 2</span><span class="donor-note">Endorser/contributor</span></li>
+            <li><span class="donor-num">4</span><span class="donor-name">Former Mayor Lori Lightfoot</span></li>
+            <li><span class="donor-num">5</span><span class="donor-name">Chicago City Clerk Anna Valencia</span></li>
+            <li><span class="donor-num">6–10</span><span class="donor-name">Not individually itemized in press</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block">
+            <strong>Chicago Board of Ethics — $30,000 Fine</strong>
+            Agreed to pay $30,000 to settle two ethics charges, including using city resources to promote Christian-themed prayer events on social media. A separate probe found she directed staff to plan church appearances for her "personal and political objectives." She denies wrongdoing.
+          </div>
+          <div class="controversy-block" style="margin-top:8px">
+            <strong>AIPAC / UDP Super PAC Support</strong>
+            AIPAC's UDP committed ~$2.8M in TV ads supporting her. Multiple opponents including Ford and Collins condemned this as "buying the seat." She responded: "The idea that a Black woman's vote is for sale is insulting and racist."
+          </div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://prospect.org/2026/02/10/aipac-super-pac-illinois-house-congress-melissa-conyears-ervin/" target="_blank">American Prospect — AIPAC</a>
+            <a class="press-link" href="https://wbez.org/politics/2026/02/27/aipac-pro-israel-groups-chicago-area-democratic-congressional-primaries-miller-conyears-ervin-bean-fine" target="_blank">WBEZ — $13.7M AIPAC spending</a>
+            <a class="press-link" href="https://chicago.suntimes.com/city-hall/2023/9/6/23861199/treasurer-conyears-ervin-ethics-abuse-of-power-allegations" target="_blank">Sun-Times — Ethics</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORD -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">La Shawn K. Ford</div>
+          <div class="ccard-title">IL State Rep. since 2007 · Endorsed by retiring Rep. Davis</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Expand/defend ACA; lower prescription drug costs; community health centers</li>
+            <li>Protect Social Security and Medicare; lower taxes on working families/small businesses</li>
+            <li>Affordable housing; humane immigration reform</li>
+            <li>Voted for IL Digital Assets and Consumer Protection Act (regulating crypto)</li>
+            <li>Supports supervised drug-use sites to reduce overdoses; hemp/THC product regulation</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$307K on hand at year-end; endorsed by Rep. Davis</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:22%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">Illinois AFL-CIO / Labor unions</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">Chicago Teachers Union</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">SEIU</span></li>
+            <li><span class="donor-num">4</span><span class="donor-name">IL Federation of Teachers</span></li>
+            <li><span class="donor-num">5</span><span class="donor-name">AFSCME</span></li>
+            <li><span class="donor-num">6</span><span class="donor-name">33+ IL House and Senate members</span><span class="donor-note">Individual endorsers/contributors</span></li>
+            <li><span class="donor-num">7</span><span class="donor-name">IL House Speaker Chris Welch</span></li>
+            <li><span class="donor-num">8</span><span class="donor-name">Senate Majority Leader Kimberly Lightford</span></li>
+            <li><span class="donor-num">9–10</span><span class="donor-name">West Side mayors and suburban officials</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">⚠ Controversies</div>
+          <div class="controversy-block">
+            <strong>2012–2014 Federal Case</strong>
+            Indicted on 17 felony bank fraud counts in 2012. Federal prosecutors dropped all felony charges in exchange for one misdemeanor (underpaying ~$3,700 in taxes). Ford maintains he was selectively prosecuted. Crypto PAC "Fairshake" ran attack ads falsely implying he was convicted of felonies — retaliation for his vote to regulate the crypto industry.
+          </div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://nbcchicago.com/news/local/chicago-politics/la-shawn-ford-other-illinois-dems-decry-influence-of-dark-money-on-elections/3898991/" target="_blank">NBC Chicago — Dark money</a>
+            <a class="press-link" href="https://oakpark.com/2026/02/24/defiant-ford-responds-to-misleading-crypto-pac-attack-ads/" target="_blank">Oak Park — Crypto PAC attack ads</a>
+            <a class="press-link" href="https://en.wikipedia.org/wiki/La_Shawn_Ford" target="_blank">Wikipedia</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THOMAS FISHER -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Thomas Fisher, M.D.</div>
+          <div class="ccard-title">ER Physician, U of C Medical Center · Author, Obama White House Fellow</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Universal healthcare (path toward Medicare for All)</li>
+            <li>Large-scale federal investment in affordable/public housing</li>
+            <li>Federal assault weapons ban; universal background checks</li>
+            <li>Student debt forgiveness; federal rental assistance and eviction protections</li>
+            <li>Clean energy investment; comprehensive immigration reform</li>
+            <li>Signature issue: 30-year life expectancy gap between Englewood and Streeterville</li>
+            <li>No corporate PAC money pledge</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$627K raised — 2nd highest in the field</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:35%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">Martin Nesbitt</span><span class="donor-note">Co-CEO of Vistria Group; Obama bundler</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">William Daley</span><span class="donor-note">Former Commerce Secretary and Obama Chief of Staff</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">Diana Rauner</span><span class="donor-note">$1,000 — wife of former Republican Gov. Bruce Rauner</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">4</span><span class="donor-name">John Legend (singer)</span><span class="donor-note">$5,000 aggregate</span></li>
+            <li><span class="donor-num">5</span><span class="donor-name">Leadership Greater Chicago alumni network</span></li>
+            <li><span class="donor-num">6</span><span class="donor-name">J Street PAC</span><span class="donor-note">Progressive pro-Israel PAC; endorsed Fisher</span></li>
+            <li><span class="donor-num">7</span><span class="donor-name">314 Action</span><span class="donor-note">Pro-science PAC; endorser/donor</span></li>
+            <li><span class="donor-num">8–10</span><span class="donor-name">Not individually itemized in press</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Endorsements</div>
+          <p>
+            <span class="endorsement">Chicago Tribune Editorial Board</span>
+            <span class="endorsement">314 Action</span>
+            <span class="endorsement">J Street PAC</span>
+          </p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://chicagotribune.com/2026/02/02/editorial-doctor-thomas-fisher-seventh-congressional-district-endorsement-danny-davis/" target="_blank">Tribune Editorial (endorsement)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KINA COLLINS -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Kina Collins</div>
+          <div class="ccard-title">Community Organizer · One Aim Illinois · 4th run for this seat</div>
+        </div>
+        <span class="rating-badge r1">1 — Most Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Medicare for All; housing as a human right</li>
+            <li>Raise federal minimum wage; Green New Deal</li>
+            <li>Comprehensive gun reform; gun manufacturer accountability</li>
+            <li>DACA path to citizenship; eliminate student loan debt</li>
+            <li>Strongly anti-AIPAC (AIPAC spent ~$500K against her in 2024)</li>
+            <li>"Fair wages, clean air and water, economy that centers people over profit"</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">Minimal (entered race late in 2025; small-dollar grassroots)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:5%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1–10</span><span class="donor-name">Small-dollar progressive grassroots donors</span><span class="donor-note">No named major institutional donors identified in press</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Prior Race Results</div>
+          <p style="font-size:12px">2020: 14% | 2022: 46% (2nd place) | 2024: 19% (3rd place)</p>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://thetriibe.com/2026/02/the-illinois-7th-congressional-district-race-is-one-you-need-to-pay-attention-to/" target="_blank">The TRiiBE</a>
+            <a class="press-link" href="https://forestparkreview.com/2026/03/03/progressive-voting/" target="_blank">Forest Park Review — Progressive lane</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRIVER -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Anthony Driver, Jr.</div>
+          <div class="ccard-title">Executive Director, SEIU Illinois State Council</div>
+        </div>
+        <span class="rating-badge r1">1 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Medicare for All with focus on Black maternal health outcomes</li>
+            <li>Universal childcare; federal jobs guarantee</li>
+            <li>Anti-gun violence (personal losses to gun violence)</li>
+            <li>Strongly anti-AIPAC: "The 7th District is not for sale. My community is not for sale."</li>
+            <li>Push Democratic Party in a more progressive direction</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$73K on hand through Q4 2025</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:5%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">SEIU Illinois State Council (affiliated)</span><span class="donor-note">His union; primary organizational backer</span></li>
+            <li><span class="donor-num">2–10</span><span class="donor-name">Not individually itemized in press</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOYKIN -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Richard R. Boykin</div>
+          <div class="ccard-title">Attorney; former Cook County Commissioner; former Davis Chief of Staff</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Lower cost of living; expand affordable housing; eliminate food deserts</li>
+            <li>Lower prescription drug costs; federal assault weapons ban</li>
+            <li>Increase violence prevention programs; crack down on corruption</li>
+            <li>Create union manufacturing jobs; multi-faceted approach to public safety</li>
+            <li>Supported repeal of Cook County soda tax in 2017</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$328K raised total (largely self-funded — $192K personal contribution in Q4)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:18%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors (press-confirmed)</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">Self (Richard Boykin)</span><span class="donor-note">$192,351 personal contribution in Q4 2025</span></li>
+            <li><span class="donor-num">2</span><span class="donor-name">Willie Wilson</span><span class="donor-note">Repeat Chicago mayoral candidate, $3,500</span></li>
+            <li><span class="donor-num">3</span><span class="donor-name">Anan Abu-Taleb</span><span class="donor-note">Former Oak Park Village president, $1,000</span></li>
+            <li><span class="donor-num">4</span><span class="donor-name">James Taglia</span><span class="donor-note">Oak Park trustee, $500</span></li>
+            <li><span class="donor-num">5</span><span class="donor-name">Italian American Police Association</span><span class="donor-note">Endorser/donor (law enforcement org.)</span><span class="flag-star">⭐</span></li>
+            <li><span class="donor-num">6</span><span class="donor-name">Cook County Treasurer Maria Pappas</span><span class="donor-note">Individual endorsement</span></li>
+            <li><span class="donor-num">7–10</span><span class="donor-name">Not individually itemized in press</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Endorsements</div>
+          <p><span class="endorsement">Willie Wilson</span> <span class="endorsement">Cook County Treasurer Maria Pappas</span></p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tier 1 congress7 -->
+
+  <div class="tier-divider"><span>Tier 2 — Additional Candidates</span></div>
+  <div class="candidate-grid">
+
+    <!-- SHOWALTER -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Reed Showalter</div><div class="ccard-title">Former FTC attorney / DOJ counsel / NEC adviser · Age 32, Oak Park</div></div>
+        <span class="rating-badge r1">1 — Most Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Medicare for All; publicly owned grocery stores</li>
+            <li>Ban landlord algorithmic rent-setting; abolish ICE</li>
+            <li>Prohibit U.S. weapons sales to Israel; recognize Palestine</li>
+            <li>Make first $50K of income tax-free; tax millionaires/billionaires</li>
+            <li>Term limits for Congress; impeach Trump</li>
+            <li>Fight AI data centers; codify abortion rights</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$259K raised; ~$134K on hand (Q4 2025)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:14%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Top Donors</div>
+          <ul class="donor-list">
+            <li><span class="donor-num">1</span><span class="donor-name">Self-loan</span><span class="donor-note">$25,000</span></li>
+            <li><span class="donor-num">2–10</span><span class="donor-name">Small-dollar progressive donors</span><span class="donor-note">No named major donors in press</span></li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://forestparkreview.com/2026/03/03/progressive-voting/" target="_blank">Forest Park Review — Progressive lane</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOSKINS -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Rory Hoskins</div><div class="ccard-title">Mayor of Forest Park · 1st Black mayor of Forest Park (2019)</div></div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Medicare for All; federal medical debt forgiveness</li>
+            <li>Extend CTA Blue Line westward; major I-290 corridor public works</li>
+            <li>Universal preschool; clean energy; school broadband</li>
+            <li>Reform ICE; expand citizenship pathways; student loan forgiveness</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$159K raised; very low cash on hand (~$11K, heavily spent)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:9%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Endorsements</div>
+          <p>Mayors of Melrose Park, River Forest, Westchester, Hillside, North Riverside + 17 Proviso Township officials</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENDOZA -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Anabel Mendoza</div><div class="ccard-title">Immigrant Rights Organizer · United We Dream · Age 27</div></div>
+        <span class="rating-badge r1">1 — Most Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Medicare for All; full medical debt forgiveness</li>
+            <li>Raise minimum wage to ~$30/hour; reparations with direct cash payments</li>
+            <li>Abolish ICE; support DACA; support small businesses over corporations</li>
+            <li>Strongly anti-AIPAC ("disgraceful," "insidious")</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">~$128K raised total (includes $13,450 self-loan)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:7%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://forestparkreview.com/2026/02/17/aipac-cash-to-conyears-ervin-in-7th-district-sparks-upset/" target="_blank">Forest Park Review — AIPAC reaction</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROBINSON -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Jazmin J. Robinson</div><div class="ccard-title">Corporate HR Professional / Improv Performer</div></div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>H.E.A.L. Act: universal healthcare, free public education from childcare through trade school</li>
+            <li>Living wage with small business tax credits; expanded government access</li>
+            <li>Funded by taxing millionaires, billionaires, and large corporations</li>
+            <li>Block ICE detention funding via appropriations riders in first 100 days</li>
+            <li>End big-money influence in politics</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">Minimal fundraising</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:2%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EHRLICH -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">David Ehrlich</div><div class="ccard-title">UIC Adjunct Lecturer / Former GAO Senior Analyst</div></div>
+        <span class="rating-badge r2">2 — Progressive (Anti-Corruption focus)</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Anti-corruption as signature issue — argues it underlies all systemic problems</li>
+            <li>Expand Low-Income Housing Tax Credit (signature housing policy)</li>
+            <li>Oversight and accountability as primary congressional function</li>
+            <li>Medicare access expansion; healthcare reform</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">Minimal fundraising</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:1%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TELLO -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div><div class="ccard-name">Felix Tello</div><div class="ccard-title">Mathematician / Executive Engineer</div></div>
+        <span class="rating-badge r2">2 — Progressive (Constituent-Delegate Model)</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="section-label">Policy</div>
+          <ul>
+            <li>Created "Vote Our Way" app — constituents vote on legislation bill-by-bill and he follows results</li>
+            <li>5 flagship bills: Democracy Forward Act, Economic Engine &amp; Jobs Act, immigration reform, healthcare expansion, Village Act (housing/social services)</li>
+            <li>Core pitch: "It's not my job to come up with the agenda. It's the people's job to tell me."</li>
+            <li>Supports universal healthcare coverage</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Fundraising</div>
+          <div class="fundraise-label">Minimal to no fundraising reported</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:1%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="section-label">Press</div>
+          <div class="press-links">
+            <a class="press-link" href="https://forestparkreview.com/2026/02/23/felix-tello-congress/" target="_blank">Forest Park Review — Profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tier 2 -->
+
+  <!-- Summary table -->
+  <div class="tier-divider"><span>Quick Comparison — IL-7 All Candidates</span></div>
+  <div class="summary-table-wrap">
+    <table class="summary-table">
+      <thead><tr>
+        <th>Candidate</th><th>Background</th><th>Rating</th><th>Signature Issue</th><th>Key Funding Note</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Jason Friedman</td><td>Real estate developer</td><td><span class="rating-badge r4">4</span></td><td>Fed. $$ back to Chicago; jobs</td><td>61% from finance/real estate; AIPAC-linked donors</td></tr>
+        <tr><td>Melissa Conyears-Ervin</td><td>Chicago Treasurer</td><td><span class="rating-badge r3">3</span></td><td>Economic access, SNAP/Medicaid</td><td>⭐ AIPAC/UDP ~$1.5–2.8M outside ads</td></tr>
+        <tr><td>La Shawn Ford</td><td>State Rep / Davis endorsee</td><td><span class="rating-badge r3">3</span></td><td>West Side investment, ACA</td><td>Union-backed; crypto PAC attack ads</td></tr>
+        <tr><td>Thomas Fisher</td><td>ER physician</td><td><span class="rating-badge r2">2</span></td><td>Universal healthcare, life expectancy gap</td><td>⭐ Diana Rauner $1K; primarily establishment Dems</td></tr>
+        <tr><td>Kina Collins</td><td>Organizer (4th run)</td><td><span class="rating-badge r1">1</span></td><td>Medicare for All, gun violence, anti-AIPAC</td><td>Grassroots / small-dollar</td></tr>
+        <tr><td>Anthony Driver Jr.</td><td>SEIU exec director</td><td><span class="rating-badge r1">1</span></td><td>Medicare for All, federal jobs guarantee</td><td>SEIU-backed, labor</td></tr>
+        <tr><td>Richard Boykin</td><td>Former commissioner</td><td><span class="rating-badge r3">3</span></td><td>Corruption, public safety, housing</td><td>Largely self-funded; ⭐ Italian American Police Assn.</td></tr>
+        <tr><td>Reed Showalter</td><td>FTC/DOJ/NEC attorney</td><td><span class="rating-badge r1">1</span></td><td>Break up monopolies, weapons embargo on Israel</td><td>Small-dollar / grassroots</td></tr>
+        <tr><td>Rory Hoskins</td><td>Forest Park mayor</td><td><span class="rating-badge r2">2</span></td><td>Infrastructure, medical debt, transit</td><td>Local elected officials</td></tr>
+        <tr><td>Anabel Mendoza</td><td>Immigrant rights organizer</td><td><span class="rating-badge r1">1</span></td><td>Reparations, ICE abolition, $30 min wage</td><td>Grassroots; self-loan</td></tr>
+        <tr><td>Jazmin Robinson</td><td>HR professional</td><td><span class="rating-badge r2">2</span></td><td>H.E.A.L. Act, anti-big money</td><td>Minimal</td></tr>
+        <tr><td>David Ehrlich</td><td>UIC lecturer / GAO analyst</td><td><span class="rating-badge r2">2</span></td><td>Anti-corruption, housing tax credit</td><td>Minimal</td></tr>
+        <tr><td>Felix Tello</td><td>Engineer / mathematician</td><td><span class="rating-badge r2">2</span></td><td>Constituent-delegate app model</td><td>Minimal to none</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════ IL-2 ═══════════════════════════════════ -->
+<div id="page-congress2" class="page">
+  <div class="race-header">
+    <div class="race-label">U.S. House · Illinois 2nd Congressional District</div>
+    <h2>IL-2 Democratic Primary</h2>
+    <p>Replacing Rep. Robin Kelly (running for Senate). District covers South Side Chicago, south suburbs (Chicago Heights, Dolton, South Holland), and central IL (Kankakee, Danville). <strong>Solid Democratic</strong> — primary winner is virtually assured the seat. 11 Democratic candidates. <strong>Key dynamics:</strong> Legacy name (Jackson Jr.) vs. AIPAC-linked moderate (Miller) vs. progressive champion (Peters) vs. labor populist (Preston).</p>
+  </div>
+
+  <div class="legend">
+    <span class="legend-item"><span class="rating-badge r1">1</span> Most Progressive</span>
+    <span class="legend-item"><span class="rating-badge r2">2</span> Progressive</span>
+    <span class="legend-item"><span class="rating-badge r3">3</span> Center-Left</span>
+    <span class="legend-item"><span class="rating-badge r4">4</span> Center</span>
+    <span class="legend-item"><span class="rating-badge r5">5</span> Most Centrist</span>
+    <span class="legend-item" style="color:var(--red)">⭐ = conservative/MAGA-linked donor flag</span>
+  </div>
+
+  <div class="tier-divider"><span>Tier 1 — Top Contenders</span></div>
+  <div class="candidate-grid">
+
+    <!-- DONNA MILLER -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Donna Miller</div>
+          <div class="ccard-title">Cook County Commissioner, 6th District</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Expand access to healthcare (favors ACA expansion; has waffled on Medicare for All); lower cost of living; affordable housing including third Chicago airport (Peotone focus shared with Jackson); expand trade and union apprenticeships; violence prevention; women's health and reproductive rights. Generally moderate, center-left positioning.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>Fundraising leader in the race — over <strong>$1M+ raised</strong> (surging to lead in Q4 2025). Majority from out-of-state donors.</p>
+          <div class="fundraise-label">Fundraising (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:100%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Donors &amp; Backers</div>
+          <ul class="donor-list">
+            <li>⭐ <strong>AIPAC/pro-Israel network</strong> — at least $875K from donors who gave to AIPAC or United Democracy Project since 2023; super PAC "Affordable Chicago Now!" and "Elect Chicago Women" running coordinated outside ads in her favor</li>
+            <li>⭐ Multiple out-of-state <strong>Trump-aligned donors</strong> (per Peters campaign FEC analysis)</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>AIPAC funding storm</strong>: $875K+ from AIPAC-linked donors; skipped candidate forums to attend fundraisers; opponents accuse her of being bought by pro-Israel lobby and Trump-allied money</li>
+            <li>⚠️ <strong>Lives outside district</strong>: Critics note she doesn't live in the 2nd District</li>
+            <li>⚠️ <strong>Medicare for All waffling</strong>: Has shifted positions — declined to firmly commit at forums</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://chicago.suntimes.com/elections/2026/02/24/2nd-congressional-district-march-democratic-primary-robin-kelly-seat" class="press-link" target="_blank">Sun-Times: AIPAC dollars heat up IL-2 race</a>
+            <a href="https://www.hpherald.com/evening_digest/key-candidates-skip-forum-in-crowded-2nd-district-race/article_30c9382f-3aa7-40f7-b409-7998388b16b6.html" class="press-link" target="_blank">Hyde Park Herald: Key candidates skip forum</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROBERT PETERS -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Robert Peters</div>
+          <div class="ccard-title">IL State Senator, 13th District (Hyde Park/Kenwood)</div>
+        </div>
+        <span class="rating-badge r1">1 — Most Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Medicare for All; abolish ICE; Pretrial Fairness Act author (ended cash bail in IL); raise minimum wage; fund violence-prevention and safety-net hospitals; workers' rights (child labor protections, temp worker protections); anti-AIPAC; calls Gaza situation genocide; anti-corporate PAC. Touts 120+ bills passed in Springfield.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>~<strong>$903K raised</strong> (2nd in field); grassroots-heavy — 20,600+ individual donors, average ~$27 online. Cash on hand: $370K+.</p>
+          <div class="fundraise-label">Fundraising (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:88%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Sen. Bernie Sanders, Sen. Elizabeth Warren, Sen. Cory Booker</li>
+            <li>David Hogg (Leaders We Deserve PAC — first endorsement of 2026 cycle)</li>
+            <li>Progressive organizations and labor groups</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>AIPAC hypocrisy claim</strong>: Jewish Insider reported Peters privately met with AIPAC officials and submitted an Israel position paper early in his campaign — much more moderate than his current rhetoric. Opponent Preston confronted him publicly: "He sought their support — they just didn't give it to him."</li>
+            <li>⚠️ <strong>Lives outside district</strong>: Resides several blocks outside the 2nd District boundaries in Hyde Park</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://jewishinsider.com/2026/02/robert-peters-illinois-democratic-primary-house-seat-aipac/" class="press-link" target="_blank">Jewish Insider: Peters pivots from AIPAC outreach to anti-Israel stance</a>
+            <a href="https://www.chicagotribune.com/2026/03/05/illinois-2nd-district-crowded-democratic-primary-emerges-in-illinois-2nd-district-race-to-replace-us-rep-robin-kelly/" class="press-link" target="_blank">Tribune: Crowded Democratic primary in IL-2</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JESSE JACKSON JR. -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Jesse L. Jackson Jr.</div>
+          <div class="ccard-title">Former U.S. Rep. IL-2 (1995–2012); nonprofit executive</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Economic development via third Chicago airport at Peotone (signature issue — "unfinished work"); expand/evolve ACA (add dental, vision, hearing — not Medicare for All); address maternal care crisis; constitutional amendments for right to vote, healthcare, education, full employment; "Trump-proof" the Constitution; easing pardons for ex-offenders; mental health investment. Anti-MAGA but center-left on most issues.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>Lower fundraising capacity than top rivals; ran largely on name recognition. Led early polling at 21% (July 2025 poll); campaign finance seen as a challenge.</p>
+          <div class="fundraise-label">Fundraising (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:35%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Former Rep. Bobby Rush (major endorsement, called him "most qualified")</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>Federal prison conviction (2013)</strong>: Found guilty of spending $750,000 in campaign funds on personal expenses including furs, vacations, and memorabilia. Served 23 months. He has repaid the government and repeatedly addressed this publicly: "I pled guilty to the crimes that were before me."</li>
+            <li>⚠️ <strong>Mental health history</strong>: Disclosed lifelong depression; resigned from Congress in 2012 due to mental health issues. Has been open about his struggles.</li>
+            <li>⚠️ <strong>Lives outside district</strong>: Spent time in D.C.; critics note he's less connected to South Side now</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://www.chicagotribune.com/2026/03/05/illinois-2nd-district-crowded-democratic-primary-emerges-in-illinois-2nd-district-race-to-replace-us-rep-robin-kelly/" class="press-link" target="_blank">Tribune: IL-2 primary overview (Jackson focus)</a>
+            <a href="https://chicago.suntimes.com/elections/2026/02/24/2nd-congressional-district-march-democratic-primary-robin-kelly-seat" class="press-link" target="_blank">Sun-Times: Jackson comeback bid</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WILLIE PRESTON -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Willie Preston</div>
+          <div class="ccard-title">IL State Senator, 16th District; Chair, IL Senate Black Caucus</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left / Populist</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Jobs, trade schools, and workforce development for Southland; support local farmers; world-class neighborhoods on the South Side. Self-described "most bipartisan state senator in Illinois." Pushed back against Chicago spending on migrants, arguing Black communities have "not gotten their fair share." Third Chicago airport supporter. Has been combative and populist in style.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>Among top four fundraisers in the race. Construction company owner background.</p>
+          <div class="fundraise-label">Fundraising (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:60%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>Past domestic violence charge</strong>: Reports surfaced of a prior domestic violence charge — he called it "the least proud moment" of his life</li>
+            <li>⚠️ <strong>Past Biden social media comments</strong>: Previous disparaging online comments about former President Biden raised questions about judgment</li>
+            <li>⚠️ <strong>Lives outside district</strong>: Resides in Auburn Gresham, outside the 2nd District boundaries</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://chicago.suntimes.com/elections/2026/02/24/2nd-congressional-district-march-democratic-primary-robin-kelly-seat" class="press-link" target="_blank">Sun-Times: IL-2 race overview</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tier 1 -->
+
+  <div class="tier-divider"><span>Tier 2 — Additional Candidates</span></div>
+  <div class="candidate-grid">
+
+    <!-- YUMEKA BROWN -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Yumeka Brown</div>
+          <div class="ccard-title">Metropolitan Water Reclamation District Commissioner; former Matteson village clerk</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Environmental justice; clean water; safe streets; affordable healthcare; living wage jobs; strong public schools. Grassroots roots in the district.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Mid-tier fundraiser; polled 2nd at 11% in a July 2025 poll (behind Jackson). Lifelong resident credential — lives in the district.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADAL REGIS -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Adal Regis</div>
+          <div class="ccard-title">Former district office staffer for Rep. Robin Kelly</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Secured millions in federal funding for local governments and nonprofits while in Kelly's office. Emphasized constituent services and funding delivery. Supports progressive policy broadly.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Lower-tier fundraiser. Inside knowledge of the district's federal funding needs. Did not respond to Sun-Times questionnaire.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERIC FRANCE -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Eric France</div>
+          <div class="ccard-title">Management consultant</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>At forums: supported raising corporate tax rates, billionaire wealth tax, reducing military spending, repealing federal death penalty, police accountability, abolishing forced prison labor, AI regulation. Generally progressive policy alignment.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Lower fundraising. Participated in candidate forums; no major controversies.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PATRICK KEATING -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Patrick J. "PJK" Keating</div>
+          <div class="ccard-title">Attorney</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Limited public information available. Attorney background; contested this Democratic primary seat.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Lower fundraising; minimal public profile in this race.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TONI C. BROWN -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Toni C. Brown</div>
+          <div class="ccard-title">Candidate (background not widely reported)</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Notes</div>
+          <p>Did not respond to Sun-Times/WBEZ questionnaire. Minimal public information available.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDNEY MOORE -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Sidney Moore</div>
+          <div class="ccard-title">Nonprofit founder; social worker; 2022 IL SoS candidate</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Notes</div>
+          <p>Previously ran for IL Secretary of State in 2022. Did not respond to Sun-Times/WBEZ questionnaire. Limited candidate info publicly available.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JEREMY YOUNG -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Jeremy Young</div>
+          <div class="ccard-title">Candidate (background not widely reported)</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Notes</div>
+          <p>Minimal public information available. Lower-tier candidate in this race.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tier 2 -->
+
+  <div class="tier-divider"><span>Quick Comparison — IL-2 All Candidates</span></div>
+  <div class="summary-table-wrap">
+    <table class="summary-table">
+      <thead><tr>
+        <th>Candidate</th><th>Background</th><th>Rating</th><th>Signature Issue</th><th>Key Funding Note</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Donna Miller</td><td>Cook County Commissioner</td><td><span class="rating-badge r3">3</span></td><td>Healthcare access, housing, women's health</td><td>⭐ $875K+ AIPAC-linked donors; out-of-state money</td></tr>
+        <tr><td>Robert Peters</td><td>State Senator (progressive champion)</td><td><span class="rating-badge r1">1</span></td><td>Pretrial Fairness Act, Medicare for All, abolish ICE</td><td>Grassroots; 20,600+ donors; endorsed Sanders/Warren</td></tr>
+        <tr><td>Jesse Jackson Jr.</td><td>Former U.S. Rep. (1995–2012)</td><td><span class="rating-badge r3">3</span></td><td>Peotone airport, ACA expansion, ex-offender pardons</td><td>Name recognition; lower direct fundraising</td></tr>
+        <tr><td>Willie Preston</td><td>State Senator; Black Caucus chair</td><td><span class="rating-badge r3">3</span></td><td>Trade schools, Southland jobs, bipartisan populism</td><td>Construction background; self-described bipartisan</td></tr>
+        <tr><td>Yumeka Brown</td><td>MWRD Commissioner</td><td><span class="rating-badge r2">2</span></td><td>Environmental justice, clean water, safe streets</td><td>Mid-tier; polled 2nd early</td></tr>
+        <tr><td>Adal Regis</td><td>Former Kelly staffer</td><td><span class="rating-badge r2">2</span></td><td>Federal funding delivery, constituent services</td><td>Lower tier</td></tr>
+        <tr><td>Eric France</td><td>Management consultant</td><td><span class="rating-badge r2">2</span></td><td>Progressive economic platform</td><td>Lower tier</td></tr>
+        <tr><td>Patrick Keating</td><td>Attorney</td><td><span class="rating-badge r2">2</span></td><td>Limited info</td><td>Lower tier</td></tr>
+        <tr><td>Toni C. Brown</td><td>Unknown</td><td><span class="rating-badge r2">2</span></td><td>Did not respond to questionnaires</td><td>Minimal</td></tr>
+        <tr><td>Sidney Moore</td><td>Nonprofit / 2022 SoS candidate</td><td><span class="rating-badge r2">2</span></td><td>Did not respond to questionnaires</td><td>Minimal</td></tr>
+        <tr><td>Jeremy Young</td><td>Unknown</td><td><span class="rating-badge r2">2</span></td><td>Minimal public info</td><td>Minimal</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end page-congress2 -->
+
+
+<!-- ═══════════════════════════════════ IL-9 ═══════════════════════════════════ -->
+<div id="page-congress9" class="page">
+  <div class="race-header">
+    <div class="race-label">U.S. House · Illinois 9th Congressional District</div>
+    <h2>IL-9 Democratic Primary</h2>
+    <p>Replacing retiring Rep. Jan Schakowsky (held seat since 1999). District covers Far North Side Chicago (Rogers Park, Edgewater, West Ridge), north suburbs (Evanston, Skokie, Glenview, Buffalo Grove), plus parts of Lake and McHenry counties. <strong>Solid Democratic</strong> — primary winner is virtually assured the seat. 15 Democratic candidates. <strong>Key dynamics:</strong> Three-way frontrunner race — Biss (center-left establishment), Abughazaleh (progressive Gen Z activist with federal indictment), Fine (moderate incumbent legislator). Heavy AIPAC outside spending for Fine; progressive national groups backing Abughazaleh.</p>
+  </div>
+
+  <div class="legend">
+    <span class="legend-item"><span class="rating-badge r1">1</span> Most Progressive</span>
+    <span class="legend-item"><span class="rating-badge r2">2</span> Progressive</span>
+    <span class="legend-item"><span class="rating-badge r3">3</span> Center-Left</span>
+    <span class="legend-item"><span class="rating-badge r4">4</span> Center</span>
+    <span class="legend-item"><span class="rating-badge r5">5</span> Most Centrist</span>
+    <span class="legend-item" style="color:var(--red)">⭐ = conservative/MAGA-linked donor flag</span>
+  </div>
+
+  <div class="tier-divider"><span>Tier 1 — Top Contenders (polling 15–25%+)</span></div>
+  <div class="candidate-grid">
+
+    <!-- DANIEL BISS -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Daniel Biss</div>
+          <div class="ccard-title">Mayor of Evanston (2021–present); former IL State Senator (9th District, 2013–19); former state rep; 2018 gubernatorial candidate</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Abolish ICE; Medicare for All; boost federal affordable housing funding; expand Social Security benefits; ban stock trading by members of Congress (signed Political Integrity Project pledge; holds no individual stocks); stricter carbon efficiency standards; preserve abortion access; anti-Trump immigration enforcement. Endorsed retiring Rep. Schakowsky. Confronted Border Patrol Chief at Evanston gas station during enforcement activity.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>~<strong>$2M raised</strong> (near top of field). Evanston and district-establishment backed.</p>
+          <div class="fundraise-label">Fundraising (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:74%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Rep. Jan Schakowsky (retiring incumbent)</li>
+            <li>Multiple state legislators; Evanston establishment</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>Stepping-stone criticism</strong>: Critics argue he's used Evanston as a political launching pad after Springfield and a failed gubernatorial run — "political opportunism over local stewardship"</li>
+            <li>⚠️ <strong>Party machinery</strong>: Accused of benefiting from Chicago/Evanston Democratic establishment "clearing the runway" for him</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Polling</div>
+          <p>Leads in multiple polls: 24% (RoundTable/PPP, Feb 20–21); led in internal Biss poll at 31%. Highest name recognition and net favorability (+28) in the field.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://evanstonroundtable.com/2026/02/24/roundtable-poll-biss-leads-by-single-digits-over-abughazaleh-fine-in-congressional-primary/" class="press-link" target="_blank">RoundTable: Poll — Biss leads</a>
+            <a href="https://www.chicagotribune.com/2026/03/03/illinois-9th-congressional-big-money/" class="press-link" target="_blank">Tribune: Big money &amp; national issues in IL-9</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KAT ABUGHAZALEH -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Kat Abughazaleh</div>
+          <div class="ccard-title">Journalist, researcher, progressive content creator; former Media Matters / Mother Jones / Zeteo News; Age 26</div>
+        </div>
+        <span class="rating-badge r1">1 — Most Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Medicare for All; abolish ICE; fix affordable housing crisis; make billionaires pay their fair share; anti-corporate PAC (no corporate money pledge); fight authoritarianism; pro-Palestinian rights (calls Gaza situation genocide; strongly anti-AIPAC); no individual stocks pledge. Framed campaign as generational change — "I didn't wait in line or ask for permission." Converted campaign office to mutual aid hub during ICE operations.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p><strong>$2.7M raised</strong> — fundraising leader in the race (through Dec. 31, 2025). All grassroots — no corporate PAC money. Massive small-dollar online base driven by social media following.</p>
+          <div class="fundraise-label">Fundraising (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:100%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Justice Democrats</li>
+            <li>Rep. Ro Khanna</li>
+            <li>Former Rep. Jamaal Bowman</li>
+            <li>Peace, Accountability, and Leadership PAC (pro-Palestine national PAC)</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>Federal indictment (Oct. 2025)</strong>: Indicted on 2 federal felony counts — conspiracy to impede a federal officer and forcibly impeding an ICE officer at Broadview ICE facility (Sept. 26, 2025). Pleaded not guilty. Trial set for May 2026 (after primary). Charges: protesters allegedly surrounded ICE vehicle, banged on it, etched "PIG" in paint, broke a mirror. Abughazaleh is accused of pressing her hands on the hood and using her body to block the vehicle. Faces up to ~8 years if convicted. She calls it a "political prosecution" by the Trump DOJ.</li>
+            <li>⚠️ <strong>Moved to Chicago in 2024</strong>: Originally from Texas; moved after being laid off from Media Matters — critics question district roots</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Polling</div>
+          <p>17% in RoundTable/PPP poll (Feb. 20–21), narrowing gap with Biss in March poll. 2nd in fundraising lead suggests strong organizing capacity.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://www.nbcnews.com/politics/justice-department/doj-indicts-democratic-congressional-candidate-kat-abughazaleh-ice-pro-rcna240584" class="press-link" target="_blank">NBC News: DOJ indicts Abughazaleh over ICE protest</a>
+            <a href="https://theintercept.com/2026/02/12/aipac-illinois-kat-abughazaleh-congress-pal-pac/" class="press-link" target="_blank">The Intercept: AIPAC flooding IL, pro-Palestine groups back Abughazaleh</a>
+            <a href="https://dailynorthwestern.com/2026/02/05/city/may-trial-scheduled-for-case-charging-abughazaleh-for-actions-tied-to-broadview-ice-facility-protest/" class="press-link" target="_blank">Daily Northwestern: May trial scheduled</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAURA FINE -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Laura Fine</div>
+          <div class="ccard-title">IL State Senator, 9th District (Glenview); former state rep (2013–18)</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left / Moderate</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Medicare for All (nominally supports); protect consumers from special interests; raise federal minimum wage; federal assault weapons ban; mental health services expansion; fought insurance industry and corporate polluters in Springfield. Took on insurance industry after husband's serious car crash. Journalism background.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>~<strong>$2M raised</strong> (near top of field). Outside spending: AIPAC donor network and "Elect Chicago Women" super PAC running ~$500K in ads on her behalf.</p>
+          <div class="fundraise-label">Fundraising (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:74%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>AIPAC money / Israel stance</strong>: AIPAC donor network has sent fundraising emails on her behalf and funded "Elect Chicago Women" PAC ads for her. Fine claims she's not seeking AIPAC support — despite attending a fundraiser with AIPAC's board president. Peters campaign calls her out on this gap.</li>
+            <li>⚠️ <strong>Stock trading</strong>: Holds individual stocks including Eli Lilly, Live Nation, Microsoft, Nvidia — has not signed the congressional stock trading ban pledge that Biss and Abughazaleh signed</li>
+            <li>⚠️ <strong>"Elect Chicago Women" PAC</strong>: Newly formed PAC (suspected AIPAC-linked) spent heavily for Fine, Bean (IL-8), and Conyears-Ervin (IL-7) — all viewed as pro-Israel moderates; donors not disclosed until near Election Day</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Polling</div>
+          <p>16% in RoundTable/PPP poll (Feb. 20–21). Fell behind Abughazaleh in more recent March poll. Internal Fine poll (Jan.) showed her tied with Biss at 21%.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://theintercept.com/2026/02/12/aipac-illinois-kat-abughazaleh-congress-pal-pac/" class="press-link" target="_blank">The Intercept: AIPAC &amp; Fine in IL-9</a>
+            <a href="https://evanstonroundtable.com/2026/02/27/on-the-issues-where-the-congressional-frontrunners-align-and-diverge/" class="press-link" target="_blank">RoundTable: Where the three frontrunners align/diverge</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tier 1 -->
+
+  <div class="tier-divider"><span>Tier 2 — Additional Major Candidates</span></div>
+  <div class="candidate-grid">
+
+    <!-- MIKE SIMMONS -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Mike Simmons</div>
+          <div class="ccard-title">IL State Senator, 7th District; former Obama Foundation My Brother's Keeper dep. director</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Progressive policy platform; focus on equity, community investment, and opportunity. Obama Foundation background. Appeared in debates; garnered a few percentage points in polling.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Mid-tier fundraiser; polling a few percentage points. Evanston-area state senator, giving him district presence.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUSHRA AMIWALA -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Bushra Amiwala</div>
+          <div class="ccard-title">Skokie School District 73.5 Board member; Google consultant; Age 28</div>
+        </div>
+        <span class="rating-badge r1">1 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Medicare for All; abolish ICE; increase path to citizenship; establish anti-war federal policy; increase federal education funding; "Bushra Blueprint." Has attended Broadview ICE protests. If elected, would be one of the youngest members of Congress and first Muslim woman from Illinois.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Lower-tier fundraiser. Few percentage points in polling. Strong local roots — Skokie native who ran for Cook County Board in 2018.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHIL ANDREW -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Phil Andrew</div>
+          <div class="ccard-title">Former FBI special agent (hostage negotiation); Winnetka shooting survivor (1988)</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Gun safety as signature issue (personal survivor of Laurie Dann school shooting at age 10); public safety reform; revenue-neutral income and child care bill modernization; national security experience. Endorsed by former 9th District candidate Bruce Leon.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Mid-tier. Few percentage points in polls. Distinctive biography and national security credential.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOAN HUYNH -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Hoan Huynh</div>
+          <div class="ccard-title">IL State Rep., 13th District (Uptown/Rogers Park)</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Reduce property tax burdens; protect Medicare access; ease public transportation expenses; housing affordability. First Vietnamese American elected to Illinois General Assembly. Lives in the district (Rogers Park).</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Mid-tier. Appeared in major debates; few percentage points in polls.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JEFF COHEN -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Jeff Cohen</div>
+          <div class="ccard-title">Economist</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy / Notes</div>
+          <p>Revenue-neutral income and child care bill as signature proposal — modernize the credits to allow monthly/quarterly payments without changing eligibility. Economist background focused on evidence-based policy.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOWARD ROSENBLUM -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Howard Rosenblum</div>
+          <div class="ccard-title">IL Human Rights Commission member; former CEO, National Association of the Deaf</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy / Notes</div>
+          <p>Civil rights; disability rights; human rights focus. Deaf himself — would be a groundbreaking member. Community advocate background.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAM POLAN -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Sam Polan</div>
+          <div class="ccard-title">Veteran</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Notes</div>
+          <p>Military veteran; limited public policy platform information available.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NICK PYATI -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Nick Pyati</div>
+          <div class="ccard-title">Former federal prosecutor</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Notes</div>
+          <p>Federal prosecution background; limited public platform information available beyond rule-of-law and accountability focus.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BETHANY JOHNSON -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Bethany Johnson</div>
+          <div class="ccard-title">Evanston resident</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Notes</div>
+          <p>Limited public information. Evanston-based candidate; minimal campaign profile.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JUSTIN FORD -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Justin Ford</div>
+          <div class="ccard-title">Environmental engineer and public health professional; union organizer</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Notes</div>
+          <p>Environmental and public health focus; union organizing background. Appeared in Evanston voter guide; limited wider profile.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PATRICIA BROWN -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Patricia A. Brown</div>
+          <div class="ccard-title">Lifelong Evanston resident; healthcare, education, ABA background</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Notes</div>
+          <p>Worked in healthcare, education, corporate America, and the American Bar Association. Emphasizes her deep Evanston roots. Did not file with FEC as of Dec. 9, 2025.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARK FREDRICKSON -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Mark Arnold Fredrickson</div>
+          <div class="ccard-title">Candidate (background not widely reported)</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Notes</div>
+          <p>Minimal public information. Did not file with FEC as of Dec. 9, 2025.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tier 2 -->
+
+  <div class="tier-divider"><span>Quick Comparison — IL-9 Top Candidates</span></div>
+  <div class="summary-table-wrap">
+    <table class="summary-table">
+      <thead><tr>
+        <th>Candidate</th><th>Background</th><th>Rating</th><th>Signature Issue</th><th>Key Funding / Controversy Note</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Daniel Biss</td><td>Evanston mayor; ex-state senator; ex-math prof</td><td><span class="rating-badge r3">3</span></td><td>Abolish ICE; housing; stock ban</td><td>~$2M; Schakowsky endorsed; accused of political opportunism</td></tr>
+        <tr><td>Kat Abughazaleh</td><td>Journalist / progressive content creator</td><td><span class="rating-badge r1">1</span></td><td>Anti-fascism, Medicare for All, Palestine</td><td>$2.7M grassroots leader; ⚠️ federal felony indictment (ICE protest, May trial)</td></tr>
+        <tr><td>Laura Fine</td><td>State Senator; former state rep; journalist</td><td><span class="rating-badge r3">3</span></td><td>Consumer protection, mental health, guns</td><td>~$2M; ⭐ AIPAC network + "Elect Chicago Women" PAC ~$500K outside; holds individual stocks</td></tr>
+        <tr><td>Mike Simmons</td><td>State Senator; Obama Foundation</td><td><span class="rating-badge r2">2</span></td><td>Equity, community investment</td><td>Mid-tier; few % in polls</td></tr>
+        <tr><td>Bushra Amiwala</td><td>School board; Google</td><td><span class="rating-badge r1">1</span></td><td>Abolish ICE; education; anti-war</td><td>Lower tier; would be youngest female Muslim member of Congress</td></tr>
+        <tr><td>Phil Andrew</td><td>Former FBI agent; shooting survivor</td><td><span class="rating-badge r3">3</span></td><td>Gun safety; national security</td><td>Mid-tier; distinctive biography</td></tr>
+        <tr><td>Hoan Huynh</td><td>State Rep. (Uptown/Rogers Park)</td><td><span class="rating-badge r2">2</span></td><td>Property taxes, Medicare, transit</td><td>Mid-tier; first Vietnamese-American IL legislator</td></tr>
+        <tr><td>Jeff Cohen</td><td>Economist</td><td><span class="rating-badge r3">3</span></td><td>Child care / income tax reform</td><td>Lower tier</td></tr>
+        <tr><td>Howard Rosenblum</td><td>Human Rights Commission; NAD CEO</td><td><span class="rating-badge r2">2</span></td><td>Civil rights, disability rights</td><td>Lower tier; deaf candidate</td></tr>
+        <tr><td>Other 6 candidates</td><td>Various</td><td><span class="rating-badge r2">2</span></td><td>Limited info available</td><td>Minimal</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end page-congress9 -->
+
+
+<!-- ═══════════════════════════════════ IL-4 ═══════════════════════════════════ -->
+<div id="page-congress4" class="page">
+  <div class="race-header">
+    <div class="race-label">U.S. House · Illinois 4th Congressional District</div>
+    <h2>IL-4 Democratic Primary</h2>
+    <p>Replacing retiring Rep. Jesús "Chuy" García. District covers SW Side Chicago (Ashburn, Brighton Park, Clearing, Gage Park, Garfield Ridge, South Lawndale, West Lawn) and western suburbs (Cicero, Berwyn). <strong>Solid Democratic (D+17)</strong> — primary winner is virtually assured the seat. <strong>⚠️ Effectively uncontested primary:</strong> Only <strong>one Democrat is on the March 17 ballot</strong> — Patty Garcia, Chuy García's chief of staff. Two other Democrats (Ald. Byron Sigcho-Lopez and possibly others) are running as <em>independents</em> and will appear only on the November general election ballot after gathering petition signatures. Chuy García pulled his re-election filing on the last day of the filing deadline — Nov. 3, 2025 — after García's organization had already helped Patty Garcia gather signatures, leaving her as the sole Democrat. The U.S. House voted 238–186 to formally rebuke Chuy García for the maneuver, with 2 dozen+ House Democrats joining all Republicans in support of the rebuke.</p>
+  </div>
+
+  <div class="tier-divider"><span>The Sole Democratic Primary Candidate</span></div>
+  <div class="candidate-grid">
+
+    <!-- PATTY GARCIA -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Patty Garcia <span style="font-size:12px;color:var(--text3)">(no relation to Rep. García)</span></div>
+          <div class="ccard-title">Chief of Staff to Rep. Chuy García (2023–2025); former District Director (2019–2023); Ph.D. in Educational Policy Studies, U of I Urbana-Champaign; Age 40</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Background</div>
+          <p>Grew up in Little Village; parents born in Mexico; attended Chicago Public Schools. Before Congress, was VP of Programs &amp; Operations at the Latino Center for Leadership Development and Deputy Director of Constituency Services at NALEO Educational Fund, training Latino policymakers. Became García's District Director on his first day in office in January 2019; promoted to Chief of Staff in January 2023. <strong>No prior elected experience.</strong></p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Dismantle the deportation machine; pathway to citizenship for immigrants; lower cost of living; relief for working families on rent, food, and utilities; hold billionaires accountable; continue Chuy García's progressive legacy. Experience: transportation, infrastructure, and education policy. Endorsed by Chuy García: "no training required."</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>Ran largely on institutional backing from García's political organization. Lower independent fundraising given the compressed timeline. Guaranteed Democratic nomination.</p>
+          <div class="fundraise-label">Fundraising (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:100%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Endorsements</div>
+          <ul class="donor-list">
+            <li>Rep. Jesús "Chuy" García (retiring incumbent, handpicked successor)</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>"Back-room deal" accusation</strong>: Ald. Sigcho-Lopez and other Democrats accused García of staging an "anti-democratic" maneuver by waiting until the filing deadline to withdraw, ensuring Patty Garcia was the only Democrat on the primary ballot. ABC7 political analyst Laura Washington: "He basically gamed the system." U.S. House voted to formally rebuke Chuy García 238–186.</li>
+            <li>⚠️ <strong>No elected experience</strong>: Critics note she has never held elected office. ABC7: "She doesn't have any elected experience or legislative experience. She's going to be pretty green on that side of the aisle."</li>
+            <li>⚠️ <strong>Faces November challenge</strong>: Despite guaranteed Democratic nomination, she will face Ald. Byron Sigcho-Lopez (democratic socialist, Mayor Brandon Johnson ally, 25th Ward) as an independent in the November general election — a potentially serious contest in a D+17 district where all three votes come from progressive Democrats</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://www.cbsnews.com/chicago/news/what-to-know-illinois-4th-congressional-district-race/" class="press-link" target="_blank">CBS Chicago: What to know about IL-4</a>
+            <a href="https://news.wttw.com/2025/11/20/amid-controversy-sparked-chuy-garc-s-resignation-patty-garcia-vows-stand-her-own" class="press-link" target="_blank">WTTW: Patty Garcia vows to stand on her own</a>
+            <a href="https://abc7chicago.com/post/midterm-election-2026-news-congressman-jess-chuy-garcas-expected-decision-leaves-5-open-us-house-seats-illinois/18112273/" class="press-link" target="_blank">ABC7: Chuy García's decision draws criticism</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tier-divider"><span>General Election — Independent Challengers (November only, not on primary ballot)</span></div>
+  <div class="candidate-grid">
+
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Byron Sigcho-Lopez</div>
+          <div class="ccard-title">Chicago Alderman, 25th Ward (2019–present); immigrant from Ecuador; former teacher; democratic socialist; close ally of Mayor Brandon Johnson</div>
+        </div>
+        <span class="rating-badge r1">1 — Most Progressive (Independent)</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Notes</div>
+          <p>Will not appear on March 17 primary ballot — must gather at least 10,816 valid petition signatures to qualify for the November general election. Called the Patty Garcia arrangement an "anti-democratic back room deal." If he qualifies, will run as an independent in November against guaranteed Democratic nominee Patty Garcia and Republican Lupe Castillo. Given D+17 district, a three-way race between two progressive Democrats and a Republican could be highly competitive.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- end page-congress4 -->
+
+
+<!-- ═══════════════════════════════════ IL-8 ═══════════════════════════════════ -->
+<div id="page-congress8" class="page">
+  <div class="race-header">
+    <div class="race-label">U.S. House · Illinois 8th Congressional District</div>
+    <h2>IL-8 Democratic Primary</h2>
+    <p>Replacing Rep. Raja Krishnamoorthi (running for Senate). District covers northwest suburbs: Schaumburg, Elgin, Palatine, Rolling Meadows, Hoffman Estates, Barrington, Des Plaines, Carol Stream, Bloomingdale, parts of Cook, DuPage, and Kane counties. <strong>Cook PVI: D+5</strong> — competitive general but Dem-favored; primary winner is likely to win in November. 8 Democratic candidates. <strong>Key dynamics:</strong> Front-runner Melissa Bean (former Rep., 2005–2011; JPMorgan/Mesirow banker) vs. progressive Junaid Ahmed (endorsed Sanders/Warren, anti-Israel aid) in a three-way with Neil Khot (tech CEO). Heavy AIPAC/outside money for Bean ($3.4M+ in outside ads). "Elect Chicago Women" super PAC backing Bean.</p>
+  </div>
+
+  <div class="legend">
+    <span class="legend-item"><span class="rating-badge r1">1</span> Most Progressive</span>
+    <span class="legend-item"><span class="rating-badge r2">2</span> Progressive</span>
+    <span class="legend-item"><span class="rating-badge r3">3</span> Center-Left</span>
+    <span class="legend-item"><span class="rating-badge r4">4</span> Center</span>
+    <span class="legend-item"><span class="rating-badge r5">5</span> Most Centrist</span>
+    <span class="legend-item" style="color:var(--red)">⭐ = conservative/MAGA-linked donor flag</span>
+  </div>
+
+  <div class="tier-divider"><span>Tier 1 — Top Contenders</span></div>
+  <div class="candidate-grid">
+
+    <!-- MELISSA BEAN -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Melissa Bean</div>
+          <div class="ccard-title">Former U.S. Rep. IL-8 (2005–2011); former Chairman, JPMorgan Chase Midwest; former CEO, Mesirow Wealth Management; grew up in Des Plaines</div>
+        </div>
+        <span class="rating-badge r4">4 — Center / Moderate</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Protect and strengthen ACA; let Medicare negotiate prescription drug prices; reverse Medicaid cuts; federal education funding; workforce training and apprenticeships; comprehensive immigration reform; regulate AI and cryptocurrency; protect voting rights; defend abortion access; marriage equality. Supports two-state solution on Israel/Gaza. Was called "Wall Street's favorite Democrat" in her congressional tenure; played key role in drafting Dodd-Frank Wall Street Reform provisions.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p><strong>$1.3M raised</strong> (fundraising leader at start of 2026). Plus <strong>$3.4M+ in AIPAC-linked outside spending</strong> from "Elect Chicago Women" super PAC — the single largest outside intervention in any IL-8 race.</p>
+          <div class="fundraise-label">Fundraising + outside spending (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:100%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Sen. Tammy Duckworth</li>
+            <li>Former House Speaker Nancy Pelosi</li>
+            <li>Reps. Bill Foster, Brad Schneider</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies &amp; Donor Flags</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>AIPAC/outside money dominance</strong>: $3.4M+ in outside spending from AIPAC-linked "Elect Chicago Women" super PAC; 57% of her individual donors (314 people) have also given to AIPAC or UDP since 2021; 87% of those AIPAC-linked donors are from outside Illinois; AIPAC-linked donations = 39%+ of her total receipts. American Prospect: "Once called Wall Street's favorite Democrat."</li>
+            <li>⚠️ <strong>16-year gap from Congress</strong>: Left office in 2011; opponents argue the political landscape has fundamentally changed since her tenure</li>
+            <li>⚠️ <strong>Corporate finance career</strong>: Post-Congress jobs at JPMorgan Chase and Mesirow Financial — opponents attack as "out of touch" and too close to Wall Street interests</li>
+            <li>⚠️ <strong>Israel/Gaza stance</strong>: Declined to give yes/no answers on WBEZ policy survey; says she supports two-state solution but won't commit to arms conditions</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://www.chicagotribune.com/2026/02/09/editorial-illinois-8th-congressional-district-melissa-bean-jennifer-davis-endorsements/" class="press-link" target="_blank">Tribune editorial board endorsement (Bean)</a>
+            <a href="https://www.wbez.org/politics/2026/02/27/aipac-pro-israel-groups-chicago-area-democratic-congressional-primaries-miller-conyears-ervin-bean-fine" class="press-link" target="_blank">WBEZ: AIPAC pours $13.7M into Chicago-area primaries</a>
+            <a href="https://chicago.suntimes.com/elections/2026/02/25/illinois-primary-melissa-bean-junaid-ahmed-kevin-morrison-yasmeen-bankole" class="press-link" target="_blank">Sun-Times: IL-8 race overview</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JUNAID AHMED -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Junaid Ahmed</div>
+          <div class="ccard-title">Tech entrepreneur; cloud computing firm director; nonprofit founder (Chi-Care); South Barrington; 2022 primary challenger to Krishnamoorthi (30%)</div>
+        </div>
+        <span class="rating-badge r1">1 — Most Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Medicare for All (expand Medicaid to all uninsured); end all U.S. military aid to Israel; Palestinian self-determination; abolish and replace ICE; restore and expand federal funding (early childhood education, senior nutrition, veterans); protect voting rights; tax cuts for working families; clean energy investment; cancel student loan debt; raise federal minimum wage. No corporate or PAC contributions.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>~<strong>$1.2M raised</strong> (2nd in field, nearly tied with Bean). Grassroots-focused; organized protests against McHenry County Jail as ICE detention facility under Biden.</p>
+          <div class="fundraise-label">Fundraising (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:76%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Sen. Bernie Sanders</li>
+            <li>Sen. Elizabeth Warren</li>
+            <li>State Sen. Cristina Castro</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>Lost badly in 2022</strong>: Challenged Krishnamoorthi in 2022, got 30% — lost by ~40 points. Some question whether he can expand his coalition beyond the progressive base in a D+5 swing-ish district</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://www.chicagotribune.com/2026/02/27/a-changing-illinois-8th-district-sets-stage-for-wide-open-democratic-primary-to-replace-rep-krishnamoorthi/" class="press-link" target="_blank">Tribune: Wide-open IL-8 primary</a>
+            <a href="https://chicago.suntimes.com/elections/2026/02/25/illinois-primary-melissa-bean-junaid-ahmed-kevin-morrison-yasmeen-bankole" class="press-link" target="_blank">Sun-Times: IL-8 candidate profiles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEIL KHOT -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Neil Khot</div>
+          <div class="ccard-title">CEO, Rely Services (Schaumburg-based back-office services firm); Hoffman Estates resident</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Business-oriented "common-sense solutions"; women's rights; protect seniors; insurance reform (mother was denied coverage — personal motivation); lower interest rates; opposes Trump tariffs and "chaos of putting ICE on the streets." Decries Trump policies broadly but frames himself as pragmatic private-sector problem-solver.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>~<strong>$1.2M raised</strong> (near-tied with Ahmed for 2nd). Endorsed by Rep. Danny Davis.</p>
+          <div class="fundraise-label">Fundraising (relative to field)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:76%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Rep. Danny Davis (retiring incumbent, IL-7)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEVIN MORRISON -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Kevin Morrison</div>
+          <div class="ccard-title">Cook County Commissioner, 15th District; Cook County's first openly gay commissioner</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Healthcare rights; LGBTQ+ rights; reproductive freedoms; resist Trump attacks on all three. At forums: "We've seen health care under attack, LGBT rights under attack, reproductive freedoms under attack — I've been involved in taking steps to push back against every one of those attacks." Progressive focus on rights and accountability.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Lower fundraising tier than Bean/Ahmed/Khot. District-based elected experience as county commissioner.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tier 1 -->
+
+  <div class="tier-divider"><span>Tier 2 — Additional Candidates</span></div>
+  <div class="candidate-grid">
+
+    <!-- YASMEEN BANKOLE -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Yasmeen Bankole</div>
+          <div class="ccard-title">Hanover Park Village Trustee (2021–present); former congressional aide; born and raised in Hanover Park</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Local government experience; constituent services focus; graduated from Lake Park High School; former librarian at Schaumburg Township District Library. Endorsed by State Rep. Anna Moeller.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Lower tier; strong local roots credential. Endorsed by State Rep. Anna Moeller (43rd District).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SANJYOT DUNUNG -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Sanjyot Dunung</div>
+          <div class="ccard-title">Founder &amp; CEO, Atma Global (learning content/solutions); UNICEF USA Board member; Northwestern grad; Des Plaines native; single mother of three</div>
+        </div>
+        <span class="rating-badge r3">3 — Center-Left</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Protect voting rights; lower taxes on working families; universal early childhood education; raise federal minimum wage; invest in clean energy; protect abortion access; supports immigration reform. Business and education policy focus.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Lower tier. Immigrant story — came from India as a child, grew up in Des Plaines.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAN TULLY -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Dan Tully</div>
+          <div class="ccard-title">Attorney; former judge advocate, U.S. Army Reserve; former legal advisor, Dept. of Commerce (left in protest of Trump policies); Carol Stream</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy &amp; Platform</div>
+          <p>Rule of law as signature issue: "I'm the only person in the race with experience practicing law — that's important when the rule of law is at stake." Military background framed as relevant to Trump's imperial use of the military. Left federal service in protest of Trump policies.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising / Notes</div>
+          <p>Lower tier. Distinctive biography combining military/legal/federal government experience.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RYAN VETTICAD -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Ryan Vetticad</div>
+          <div class="ccard-title">Former DOJ National Security Division employee; Age ~25 (will turn 25 — minimum constitutional age — by Election Day)</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy / Notes</div>
+          <p>Would be one of the youngest members of Congress if elected. National security and rule of law background from DOJ. Limited public platform details available.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tier 2 -->
+
+  <div class="tier-divider"><span>Quick Comparison — IL-8 All Candidates</span></div>
+  <div class="summary-table-wrap">
+    <table class="summary-table">
+      <thead><tr>
+        <th>Candidate</th><th>Background</th><th>Rating</th><th>Signature Issue</th><th>Key Funding Note</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Melissa Bean</td><td>Former Rep. (2005–11); JPMorgan/Mesirow banker</td><td><span class="rating-badge r4">4</span></td><td>ACA, Dodd-Frank experience, pragmatic governance</td><td>⭐ $1.3M raised + $3.4M AIPAC-linked outside ads; 39%+ of donors AIPAC-linked; Duckworth/Pelosi endorsed</td></tr>
+        <tr><td>Junaid Ahmed</td><td>Tech entrepreneur; nonprofit founder</td><td><span class="rating-badge r1">1</span></td><td>End military aid to Israel; Medicare for All; abolish ICE</td><td>~$1.2M grassroots; Sanders/Warren endorsed; no corporate PACs</td></tr>
+        <tr><td>Neil Khot</td><td>Tech company CEO (Rely Services)</td><td><span class="rating-badge r3">3</span></td><td>Insurance reform; common-sense business solutions</td><td>~$1.2M; Danny Davis endorsed</td></tr>
+        <tr><td>Kevin Morrison</td><td>Cook County Commissioner (1st openly gay)</td><td><span class="rating-badge r2">2</span></td><td>Healthcare, LGBTQ+ rights, reproductive freedom</td><td>Lower tier</td></tr>
+        <tr><td>Yasmeen Bankole</td><td>Hanover Park Trustee; former congressional aide</td><td><span class="rating-badge r2">2</span></td><td>Local constituent services; working families</td><td>Lower tier; Anna Moeller endorsed</td></tr>
+        <tr><td>Sanjyot Dunung</td><td>CEO, Atma Global; UNICEF board</td><td><span class="rating-badge r3">3</span></td><td>Early childhood education; voting rights; taxes</td><td>Lower tier</td></tr>
+        <tr><td>Dan Tully</td><td>Army JAG attorney; DOJ/Commerce (left in protest)</td><td><span class="rating-badge r2">2</span></td><td>Rule of law; military accountability</td><td>Lower tier</td></tr>
+        <tr><td>Ryan Vetticad</td><td>Former DOJ National Security Div.</td><td><span class="rating-badge r2">2</span></td><td>National security; rule of law</td><td>Lower tier; would be one of youngest members ever</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end page-congress8 -->
+
+
+<!-- ══════════════════════════ COOK COUNTY BOARD PRESIDENT ══════════════════════════ -->
+<div id="page-ccbp" class="page">
+  <div class="race-header">
+    <div class="race-label">Cook County · Board President</div>
+    <h2>Cook County Board President — Democratic Primary</h2>
+    <p>The Cook County Board President is chief executive of the nation's 2nd-largest county by population (~5.2M residents), overseeing a <strong>~$10 billion annual budget</strong>, 22,000+ employees, the county jail and court system, the nation's largest public health/hospital system (Stroger Hospital, Provident Hospital, Ruth M. Rothstein CORE Center), 600 miles of roads, and the Forest Preserves. The president also chairs the 17-member Board of Commissioners and — in Preckwinkle's case — serves as <strong>Cook County Democratic Party Chair</strong>, giving the office extraordinary political influence over judicial slating and countywide endorsements. <strong>No Republican is running</strong> — Democratic primary winner wins the office. This race is widely seen as a <strong>proxy battle between Chicago's progressive and pro-business Democratic factions</strong>, and a test of Mayor Brandon Johnson's political standing.</p>
+  </div>
+
+  <div class="tier-divider"><span>The Two Candidates</span></div>
+  <div class="candidate-grid">
+
+    <!-- TONI PRECKWINKLE -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Toni Preckwinkle</div>
+          <div class="ccard-title">Incumbent Cook County Board President (2010–present); Cook County Democratic Party Chair (2018–present); former Chicago Alderman, 4th Ward (1991–2010); former high school history teacher; Age 79</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Background &amp; Record</div>
+          <p>First Black woman elected Cook County Board President (2010). Former history teacher for 10 years; former South Side 4th Ward alderman for nearly 20 years — one of City Council's few independent voices under Mayor Daley. Defeated corrupt incumbent Todd Stroger in 2010 as a reformer. Has now held the office for 16 years, seeking a 5th four-year term. As party chair, she controls judicial slating and wields enormous influence over Democratic primaries countywide.</p>
+          <p><strong>Key accomplishments:</strong> 15 consecutive balanced budgets with no county property tax increase; county pension fund ~66% funded (double some city funds); 4 bond rating upgrades since 2021; erased $600M+ in medical debt for 500,000+ residents; guaranteed income pilot (3,000+ households); helped eliminate cash bail in Illinois (Pretrial Fairness Act); "ICE-free zones" executive order during Trump-era immigration sweeps; fought ICE's "Operation: Midway Surge" in court.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy Platform (5th term)</div>
+          <p>Defend Cook County's public health system from federal Medicaid cuts (county set aside $320M reserves + $70M for potential Medicaid losses); protect county residents from Trump administration policies; continue fiscal discipline; maintain county as sanctuary from ICE. Framing: "Trump's declared war on us. We need somebody who's going to stand up to him."</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>Significant advantage as Democratic Party chair — controls party infrastructure and donor network. Political experts give her the fundraising edge over Reilly.</p>
+          <div class="fundraise-label">Fundraising (relative to opponent)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:100%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Gov. JB Pritzker</li>
+            <li>Multiple major unions</li>
+            <li>South and West Side clergy (dozens)</li>
+            <li>Springfield state legislative allies</li>
+          </ul>
+          <p style="color:var(--text3);font-size:13px;margin-top:6px">⚠️ Notably did <em>not</em> seek Chicago Teachers Union endorsement this cycle (CTU backed her in past races)</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies &amp; Vulnerabilities</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>Tyler Technologies disaster</strong>: County's $30M/3-year contract to upgrade the property tax system turned into an 11-year, $100M+ debacle. Property tax bills went out 4+ months late in 2025, forcing school districts (including CPS) to take out short-term loans costing ~$120M in interest — effectively a de facto property tax increase on homeowners. Preckwinkle: "The hard work is now done." Bills going out on time in 2026. Chicago Tribune endorsed Reilly partly over this.</li>
+            <li>⚠️ <strong>ICE data contract</strong>: Preckwinkle renewed a contract with a data company that shares information with ICE and other federal agencies while simultaneously declaring "ICE-free zones" — criticized as hypocritical by Reilly and several county commissioners who abstained from the vote.</li>
+            <li>⚠️ <strong>Soda tax legacy</strong>: Supported and implemented a countywide soda tax that was hugely unpopular and repealed after public backlash — still cited by Reilly as evidence of poor judgment on taxes.</li>
+            <li>⚠️ <strong>Electronic monitoring system</strong>: Defended county's electronic monitoring program amid controversy after an arson attack on a CTA train by a man on electronic monitoring.</li>
+            <li>⚠️ <strong>Kim Foxx ties</strong>: Foxx was Preckwinkle's former chief of staff and mentee; Reilly endorsed Republican challenger Patrick O'Brien against Foxx in 2020 state's attorney race, citing progressive prosecutorial policies.</li>
+            <li>⚠️ <strong>Age &amp; incumbency fatigue</strong>: At 79 (turns 79 on primary day, March 17), critics — including Chicago Tribune editorial board — argue it's simply time for new leadership after 16 years.</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://www.wbez.org/government-politics/elections/2026/02/16/cook-county-board-president-march-democratic-primary-toni-preckwinkle-brendan-reilly" class="press-link" target="_blank">WBEZ: Full primary overview</a>
+            <a href="https://www.cbsnews.com/chicago/news/toni-preckwinkle-vs-brendan-reilly-cook-county-board-president-democratic-primary-2026/" class="press-link" target="_blank">CBS Chicago: Preckwinkle vs. Reilly</a>
+            <a href="https://www.chicagotribune.com/2026/01/31/editorial-cook-county-board-president-brendan-reilly-toni-preckwinkle/" class="press-link" target="_blank">Tribune: Editorial endorses Reilly over Preckwinkle</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRENDAN REILLY -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Brendan Reilly</div>
+          <div class="ccard-title">Chicago Alderman, 42nd Ward (2007–present) — Downtown Loop, River North, Streeterville, Gold Coast, Magnificent Mile; former AT&T executive; former IL House staffer; former Vice Mayor under Rahm Emanuel (2015–2019); Age 54</div>
+        </div>
+        <span class="rating-badge r4">4 — Center / Pro-Business Moderate</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Background &amp; Record</div>
+          <p>Downtown Chicago alderman for nearly 20 years. Oversaw Trump International Hotel &amp; Tower construction in his ward (completed 2009). Served as Vice Mayor (president pro tempore) under Rahm Emanuel; grew critical of Lori Lightfoot and backed her opponent Paul Vallas in 2023. Vocal critic of Mayor Brandon Johnson and opponent of proposed property tax hikes. Self-described "independent voice" who frequently votes with the council's more conservative bloc. Backed Republican Patrick O'Brien over Kim Foxx (Preckwinkle's mentee) for state's attorney in 2020.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy Platform</div>
+          <p>Make Cook County government more affordable and efficient; fix the Tyler Technologies property tax system failure; increase transparency in county executive decision-making; prioritize ER/trauma care in county health system; ensure "Cook County services are for Cook County residents" (immigration cost-sharing critique). Pro-business, pro-affordability framing; opposes tax increases.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>Raised significant business-backed funding — "big financial support from downtown businesses." Endorsed by Chicago Tribune editorial board. Lower than Preckwinkle's institutional machine but competitive.</p>
+          <div class="fundraise-label">Fundraising (relative to opponent)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:68%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Chicago Tribune editorial board</li>
+            <li>Downtown business community</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies &amp; Vulnerabilities</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>Trump donation history</strong>: Received campaign contributions from Donald Trump; says he donated those funds to two charities. Preckwinkle's central attack: "He's got long-standing ties to Donald Trump." Preckwinkle also notes Reilly helped put the Trump name on Trump Tower in his ward — Reilly: he was just doing his job as the ward's alderman. Axios: "questionable to align him with the MAGA movement" given overall record.</li>
+            <li>⚠️ <strong>Sanctuary city votes</strong>: In 2021, voted against expanding Chicago's Welcoming City Ordinance to prohibit police cooperation with ICE in all cases. In January 2025 — just one week before Trump's inauguration — joined conservative alders in an attempt to partially roll back sanctuary city protections. Preckwinkle: "January 15th, and Trump was sworn in on the 21st. It was a week before." Reilly: Biden was still president, so no malicious intent.</li>
+            <li>⚠️ <strong>Pro-business = commercial real estate pressure?</strong> Critics on the left argue his "affordability" framing masks a desire to shift property tax burden back toward residential owners and away from commercial properties — the pre-Kaegi status quo under Berrios.</li>
+            <li>⚠️ <strong>Parking meter deal (2008)</strong>: Voted in favor of Mayor Daley's infamous 75-year parking meter privatization deal — now widely considered one of Chicago's worst-ever government decisions. Preckwinkle voted against it.</li>
+            <li>⚠️ <strong>Anti-Brandon Johnson proxy</strong>: The race is framed as a proxy test of the Johnson progressive coalition — Reilly is a fierce critic of Johnson and endorsed Johnson's opponent in 2023. A Reilly win would be a significant blow to the city's progressive establishment.</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://www.chicagotribune.com/2026/01/31/editorial-cook-county-board-president-brendan-reilly-toni-preckwinkle/" class="press-link" target="_blank">Tribune editorial: Endorses Reilly</a>
+            <a href="https://www.axios.com/local/chicago/2026/02/12/preckwinkle-reilly-cook-county-board-president-chicago" class="press-link" target="_blank">Axios Chicago: Competing visions</a>
+            <a href="https://www.nbcchicago.com/illinois-election-2026/ald-brendan-reilly-aims-to-oust-cook-county-board-president-toni-preckwinkle/3903325/" class="press-link" target="_blank">NBC 5: Reilly aims to oust Preckwinkle</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end candidate grid -->
+
+  <div class="tier-divider"><span>Head-to-Head Comparison</span></div>
+  <div class="summary-table-wrap">
+    <table class="summary-table">
+      <thead><tr><th>Issue</th><th>Preckwinkle</th><th>Reilly</th></tr></thead>
+      <tbody>
+        <tr><td>Property taxes</td><td>No county property tax increase in 16 years; proud fiscal record</td><td>System is broken; soda tax; Tyler fiasco = de facto tax hike on homeowners</td></tr>
+        <tr><td>Tyler Technologies failure</td><td>"Hard work is done" — problem solved; other officials shared responsibility</td><td>Signature attack: 11 years, $100M+, bills still late; caused $120M in school loans</td></tr>
+        <tr><td>Trump/immigration</td><td>ICE-free zones EO; fought Operation Midway Surge in court; attacks Reilly's Trump ties</td><td>Stood on stage at No Kings rally; donated Trump contributions to charity; defends sanctuary votes in Biden context</td></tr>
+        <tr><td>ICE data contract</td><td>Renewed data-sharing contract with ICE-linked company; majority of commissioners abstained</td><td>Attacks this as hypocrisy given Preckwinkle's ICE-free zones rhetoric</td></tr>
+        <tr><td>County health system</td><td>Champion of public health access; $600M medical debt erasure; guaranteed income pilot</td><td>Prioritize ER/trauma; pre-rank services; ensure county serves county residents</td></tr>
+        <tr><td>Brandon Johnson</td><td>Early supporter; allied with progressive faction</td><td>Fierce critic; backed Johnson's opponent Paul Vallas in 2023</td></tr>
+        <tr><td>Editorial endorsements</td><td>South/West Side clergy, Pritzker, unions</td><td>Chicago Tribune editorial board</td></tr>
+        <tr><td>Political significance</td><td>If wins: progressive machine holds; Johnson coalition intact</td><td>If wins: business wing ascendant; major blow to progressive establishment</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- end page-ccbp -->
+
+
+<!-- ══════════════════════════ COOK COUNTY ASSESSOR ══════════════════════════ -->
+<div id="page-ccassessor" class="page">
+  <div class="race-header">
+    <div class="race-label">Cook County · Assessor</div>
+    <h2>Cook County Assessor — Democratic Primary</h2>
+    <p>The Cook County Assessor appraises the value of every piece of real estate in the county — directly determining each property's share of the overall property tax burden. The office reassesses one third of the county's parcels every year, handles exemptions and tax incentives, and plays a critical role in whether the tax burden falls more heavily on residential homeowners (especially lower-income ones) or on commercial properties. <strong>No Republican is running</strong> — Democratic primary winner wins the office. This race is set against the backdrop of <strong>skyrocketing property tax bills on Chicago's South and West sides</strong> — in North Lawndale bills rose ~98%, in West Garfield Park ~130%+ — driven partly by commercial property appeals shifting the burden to residential owners. The race is also a classic <strong>progressive reformer (Kaegi) vs. machine/establishment candidate (Hynes)</strong> dynamic, with the Cook County Democratic Party endorsing the challenger.</p>
+  </div>
+
+  <div class="tier-divider"><span>The Two Candidates</span></div>
+  <div class="candidate-grid">
+
+    <!-- FRITZ KAEGI -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Fritz Kaegi</div>
+          <div class="ccard-title">Incumbent Cook County Assessor (2018–present); former mutual fund portfolio manager and analyst (20 years); Oak Park; Age 54</div>
+        </div>
+        <span class="rating-badge r2">2 — Progressive / Reform</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Background &amp; Record</div>
+          <p>Ran in 2018 as an outsider reformer against corrupt incumbent Joe Berrios, whose office systematically over-assessed low-income minority homeowners and under-assessed wealthy commercial properties. Won decisively. Financial background: 20 years as a mutual fund portfolio manager and analyst before entering politics.</p>
+          <p><strong>Key reform accomplishments:</strong> University of Chicago study showed near-elimination of assessment regressivity — saved the bottom 70% of homeowners <strong>$2 billion</strong> cumulatively. Adopted mass-appraisal modeling that more accurately tracks commercial values. Added staff, improved data collection and IT systems. Sought to aggressively assess commercial properties at market value (particularly downtown offices that saw post-COVID value drops).</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy Platform (3rd term)</div>
+          <p>Continue equity-focused assessment reform; shift to annual reassessment cycle to reduce volatility; improve commercial assessment accuracy (commercial assessments are currently accurate within industry standards but reduced 10–26% on appeal by the Board of Review — Kaegi argues Trump Tower and similar buildings get unfair reductions: "700 dollars was passed on to every single homeowner in Chicago this year because of big reductions like that"); fight commercial over-appeal problem at the Board of Review level; expand data collection and IT systems.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p><strong>$2.5M+ raised</strong> — significant fundraising lead over Hynes (~$1M). Largest donations from his own pocket. Critics note tens of thousands from real estate developers (Stephen Schuler/Wicklow Capital: $25K; K&amp;J Builders: $5K).</p>
+          <div class="fundraise-label">Fundraising (relative to opponent)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:100%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Chicago Tribune editorial board (endorsed over Hynes)</li>
+            <li>Reform and good-government advocates</li>
+            <li>University of Chicago policy researchers (academic support)</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies &amp; Vulnerabilities</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>COVID pandemic adjustment blunder</strong>: During COVID, modified all homeowner assessments downward based on expected unemployment and predicted market declines — but the market instead surged dramatically. This created a massive assessment catch-up that contributed to the shocking property tax spikes on the South and West sides (West Garfield Park: +130%). The Sun-Times, WBEZ and others have extensively documented this as a significant unforced error. Kaegi acknowledges the challenge but blames broader market forces and the Board of Review.</li>
+            <li>⚠️ <strong>New construction miss</strong>: Hynes says Kaegi's office failed to capture thousands of new construction properties on the tax rolls — representing billions in unassessed value that shifted the burden to everyone else. Kaegi counters that municipalities failed to share building permit data in a timely way.</li>
+            <li>⚠️ <strong>Late tax bills</strong>: Property tax bills were late in both 2022 and 2025 under Kaegi's tenure — contributing (along with the Tyler Technologies failure) to school district cash flow crises.</li>
+            <li>⚠️ <strong>Real estate developer donations</strong>: Hynes attacks Kaegi for accepting $25K from Wicklow Capital and other real estate interests despite being an assessor.</li>
+            <li>⚠️ <strong>Cook County Democratic Party opposition</strong>: The county party endorsed Hynes — an unusual move against an incumbent of the same party, reflecting establishment dissatisfaction.</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://www.chicagotribune.com/2026/02/07/editorial-fritz-kaegi-cook-county-assessor-endorsement-patrick-hynes/" class="press-link" target="_blank">Tribune editorial: Endorses Kaegi over Hynes</a>
+            <a href="https://chicago.suntimes.com/elections/2026/02/27/cook-county-assessor-fritz-kaegi-lyons-township-pat-hynes-march-17-democratic-primary" class="press-link" target="_blank">Sun-Times: Full assessor race overview</a>
+            <a href="https://www.wbez.org/elections/2026/02/17/what-to-know-democratic-primary-cook-county-assessor-fritz-kaegi-pat-hynes" class="press-link" target="_blank">WBEZ: What to know about the assessor race</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAT HYNES -->
+    <div class="ccard">
+      <div class="ccard-header">
+        <div>
+          <div class="ccard-name">Pat Hynes</div>
+          <div class="ccard-title">Lyons Township Assessor (2021–present); former Cook County Assessor's Office residential field inspector (23 years, including 3 under Kaegi); volunteer firefighter/EMT, Western Springs Fire Dept.; Democratic State Central Committeeman, 6th District; nephew of former 5-term Assessor Thomas Hynes; Age 53; Western Springs</div>
+        </div>
+        <span class="rating-badge r4">4 — Center / Establishment</span>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-section">
+          <div class="ccard-section-title">Background</div>
+          <p>Grew up in Beverly neighborhood; son of a Chicago firefighter and CPS teacher; Br. Rice High School 1990; BS in Real Estate from DePaul. Spent 23 years as a residential field inspector in the Cook County Assessor's office — including time under Berrios and then 3 years under Kaegi himself (making this a race against his former boss). Now in his first term as Lyons Township Assessor; won the 2025 Outstanding Achievement in Property Assessment Award from the Illinois Property Assessment Institute. Certified Illinois Assessment Officer and International Association of Assessing Officers member. Also a volunteer firefighter/EMT.</p>
+          <p><strong>Family ties:</strong> His uncle, <strong>Thomas Hynes</strong>, was Cook County Assessor for five terms and Illinois Senate President — a deeply embedded machine political pedigree.</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Policy Platform</div>
+          <p>"Good clean data" as foundational fix; crack down on missed new construction (claims thousands of new construction properties never added to rolls = billions in lost taxable value); reduce assessment volatility; create a dedicated Department of Economic Development within the Assessor's office; improve accessibility and transparency for working families navigating their bills; work collaboratively with Board of Review for consistent market-based valuations. Against shifting to annual reassessment (says office lacks personnel).</p>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Fundraising</div>
+          <p>~<strong>$1M raised</strong>. Notable: ~$60,000 from interests connected to 150 N. Riverside (a riverfront property whose last assessor appeal was rejected in 2018 — when Kaegi took office); $40,000 from David Carlins, CEO of Magellan Development (luxury developer, St. Regis skyscraper). Heavy commercial real estate backing.</p>
+          <div class="fundraise-label">Fundraising (relative to opponent)</div>
+          <div class="fundraise-bar"><div class="fundraise-fill" style="width:40%"></div></div>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Key Endorsements</div>
+          <ul class="donor-list">
+            <li>Cook County Democratic Party (unusual — endorsing against the incumbent)</li>
+            <li>Chicago Federation of Labor</li>
+            <li>BOMA/Chicago (Building Owners and Managers Association — commercial real estate industry)</li>
+            <li>Several South and West Side aldermen</li>
+            <li>Major unions</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Controversies &amp; Vulnerabilities</div>
+          <ul class="controversy-list">
+            <li>⚠️ <strong>Berrios office legacy</strong>: Worked 23 years in the Assessor's office — the vast majority under Joe Berrios, whose corrupt regime systematically over-taxed low-income Black and Latino homeowners while letting wealthy commercial owners skate. Chicago Tribune editorial board: Hynes "left us with the sense that he preferred the way Berrios ran this office (sans the corruption) to the way it has been run by the incumbent." Kaegi supporters argue electing Hynes risks reverting to the pre-reform era.</li>
+            <li>⚠️ <strong>Commercial real estate money</strong>: $60K from 150 N. Riverside interests; $40K from luxury developer Magellan/Carlins; BOMA/Chicago backing = "thumb on the scale for commercial taxpayers," per Tribune. This is the central ideological conflict: Kaegi has tilted toward residential equity; Hynes would tilt back toward commercial interests.</li>
+            <li>⚠️ <strong>Thomas Hynes family dynasty</strong>: His uncle Tom Hynes was a five-term assessor under the old machine system. Progressive critics see Pat Hynes as a restoration of machine-era politics in the office.</li>
+            <li>⚠️ <strong>Machine party backing against reformer</strong>: The Cook County Dem Party's endorsement of Hynes over the incumbent is seen by progressives as the machine trying to reassert control over a reform office.</li>
+          </ul>
+        </div>
+        <div class="ccard-section">
+          <div class="ccard-section-title">Press</div>
+          <div class="press-links">
+            <a href="https://chicago.suntimes.com/elections/2026/02/27/cook-county-assessor-fritz-kaegi-lyons-township-pat-hynes-march-17-democratic-primary" class="press-link" target="_blank">Sun-Times: Assessor race deep dive</a>
+            <a href="https://abc7chicago.com/post/democratic-cook-county-assessor-fritz-kaegi-tough-race-candidate-pat-hynes-2026-election/18549960/" class="press-link" target="_blank">ABC7: Kaegi in tough race against Hynes</a>
+            <a href="https://www.cbsnews.com/chicago/news/who-is-running-cook-county-assessor-2026-primary-elections/" class="press-link" target="_blank">CBS Chicago: Who is running for Assessor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end candidate grid -->
+
+  <div class="tier-divider"><span>Head-to-Head Comparison</span></div>
+  <div class="summary-table-wrap">
+    <table class="summary-table">
+      <thead><tr><th>Issue</th><th>Kaegi (Incumbent)</th><th>Hynes (Challenger)</th></tr></thead>
+      <tbody>
+        <tr><td>Core ideology</td><td>Equity-first reform: residential homeowners, especially low-income, should not bear disproportionate burden</td><td>Accuracy-first: fix data, reduce volatility, serve all taxpayers including commercial</td></tr>
+        <tr><td>Residential tax spikes (S/W sides)</td><td>Result of COVID adjustment error + Board of Review commercial appeal givebacks — systemic problem beyond assessor alone</td><td>Kaegi's fault — COVID adjustment was an unforced error; "no magic beans" but better data would help</td></tr>
+        <tr><td>Commercial properties</td><td>Aggressively assesses at market value; blames Board of Review for reducing them 10–26% on appeal</td><td>Would work more collaboratively with Board of Review; backed by BOMA/commercial real estate interests</td></tr>
+        <tr><td>New construction gap</td><td>Municipalities failed to share permit data timely</td><td>Thousands of new construction properties never assessed = billions in missing taxable value; wants crackdown</td></tr>
+        <tr><td>Assessment frequency</td><td>Wants annual reassessment to reduce volatility</td><td>Opposed — office lacks personnel for annual cycle</td></tr>
+        <tr><td>Party establishment</td><td>Endorsed by Tribune; opposed by Cook County Dem Party machine</td><td>Endorsed by Cook County Dem Party, Chicago Federation of Labor, BOMA, unions</td></tr>
+        <tr><td>Berrios era</td><td>Ran explicitly against Berrios corruption; reversed regressive system</td><td>Worked 20+ years under Berrios; Tribune says he prefers that management style (without corruption)</td></tr>
+        <tr><td>Fundraising</td><td>$2.5M+ (leads significantly)</td><td>~$1M; heavy commercial real estate backing</td></tr>
+        <tr><td>Who benefits if wins</td><td>Low/middle-income residential homeowners; equity-focused governance</td><td>Commercial property owners, real estate developers; machine Dem establishment</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- end page-ccassessor -->
+
+</main>
+
+<script>
+  function showPage(id) {
+    if (!id || id === 'home' || !document.getElementById('page-' + id)) {
+      id = 'home';
+    }
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    const sel = document.getElementById('race-select');
+    if (sel) sel.value = id;
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
