@@ -189,10 +189,24 @@
   }
 
   .hero-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 960px;
+  }
+
+  .race-group-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #010101;
+    margin-bottom: 14px;
+  }
+
+  .race-group-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    max-width: 960px;
+    gap: 14px;
   }
 
   .hero-card {
@@ -743,35 +757,47 @@
   <div class="nav-select-wrap">
     <select class="nav-select" id="race-select" onchange="showPage(this.value)">
       <option value="home">Select Race</option>
-      <option value="senate">🗳 U.S. Senate</option>
-      <option value="comptroller">💼 Comptroller</option>
-      <option value="congress7">🏛 IL-7 Congress</option>
-      <option value="congress2">🏛 IL-2 Congress</option>
-      <option value="congress9">🏛 IL-9 Congress</option>
-      <option value="congress4">🏛 IL-4 Congress</option>
-      <option value="congress8">🏛 IL-8 Congress</option>
-      <option value="ccbp">🏙 Cook County Board President</option>
-      <option value="ccassessor">🏙 Cook County Assessor</option>
-      <option value="mwrd">💧 MWRD — 6-Year Term</option>
-      <option value="mwrd2">💧 MWRD — 2-Year Special Election</option>
-      <option value="hd8">🏛 HD-8 State House (West Side / Oak Park)</option>
-      <option value="hd12">🏛 HD-12 State House (Lincoln Park / Gold Coast)</option>
-      <option value="hd13">🏛 HD-13 State House (Rogers Park / Edgewater)</option>
-      <option value="sd9">🏛 SD-9 State Senate (Evanston / North Shore)</option>
-      <option value="congress13">🏛 IL-13 Congress (Springfield / Champaign / Metro East)</option>
-      <option value="hd34">🏛 HD-34 State House (South Side / Kankakee)</option>
-      <option value="hd40">🏛 HD-40 State House (Irving Park / Albany Park)</option>
-      <option value="hd42">🏛 HD-42 State House (Glen Ellyn / DuPage)</option>
-      <option value="hd52">🏛 HD-52 State House (Barrington / Libertyville)</option>
-      <option value="sd14">🏛 SD-14 State Senate (South Side / South Suburbs)</option>
-      <option value="sd6">🏛 SD-6 State Senate (Lakeview / Lincoln Park / Near North)</option>
-      <option value="hd84">🏛 HD-84 State House (Aurora / Oswego / Naperville suburbs)</option>
-      <option value="hd26">🏛 HD-26 State House (Hyde Park / South Shore / Beverly)</option>
-      <option value="hd1">🏛 HD-1 State House (Brighton Park / Gage Park / Bridgeport)</option>
-      <option value="hd4">🏛 HD-4 State House (Humboldt Park / Logan Square / Belmont-Cragin)</option>
-      <option value="dscc7">🗳 State Central Committeeperson — 7th CD</option>
-      <option value="cc12">🏙 Cook County Commissioner — 12th District</option>
-      <option value="bor2">📋 Cook County Board of Review — 2nd District</option>
+      <optgroup label="Statewide">
+        <option value="senate">U.S. Senate</option>
+        <option value="comptroller">Comptroller</option>
+      </optgroup>
+      <optgroup label="U.S. House">
+        <option value="congress7">IL-7 (West/South Side + suburbs)</option>
+        <option value="congress2">IL-2 (South Side + south suburbs)</option>
+        <option value="congress9">IL-9 (North Side + North Shore)</option>
+        <option value="congress4">IL-4 (SW Side + western suburbs)</option>
+        <option value="congress8">IL-8 (NW suburbs)</option>
+        <option value="congress13">IL-13 (Springfield / Champaign)</option>
+      </optgroup>
+      <optgroup label="Illinois State Senate">
+        <option value="sd6">SD-6 (Lakeview / Lincoln Park)</option>
+        <option value="sd9">SD-9 (Evanston / North Shore)</option>
+        <option value="sd14">SD-14 (South Side / South Suburbs)</option>
+      </optgroup>
+      <optgroup label="Illinois State House">
+        <option value="hd1">HD-1 (Brighton Park / Bridgeport)</option>
+        <option value="hd4">HD-4 (Humboldt Park / Logan Square)</option>
+        <option value="hd8">HD-8 (West Side / Oak Park)</option>
+        <option value="hd12">HD-12 (Lincoln Park / Gold Coast)</option>
+        <option value="hd13">HD-13 (Rogers Park / Edgewater)</option>
+        <option value="hd26">HD-26 (Hyde Park / South Shore)</option>
+        <option value="hd34">HD-34 (South Side / Kankakee)</option>
+        <option value="hd40">HD-40 (Irving Park / Albany Park)</option>
+        <option value="hd42">HD-42 (Glen Ellyn / DuPage)</option>
+        <option value="hd52">HD-52 (Barrington / Libertyville)</option>
+        <option value="hd84">HD-84 (Aurora / Oswego)</option>
+      </optgroup>
+      <optgroup label="Cook County">
+        <option value="ccbp">Board President</option>
+        <option value="ccassessor">Assessor</option>
+        <option value="cc12">Commissioner — 12th District</option>
+        <option value="bor2">Board of Review — 2nd District</option>
+        <option value="mwrd">MWRD — 6-Year Term</option>
+        <option value="mwrd2">MWRD — 2-Year Special Election</option>
+      </optgroup>
+      <optgroup label="Illinois Democratic Party">
+        <option value="dscc7">State Central Committeeperson — 7th CD</option>
+      </optgroup>
     </select>
     <svg class="nav-select-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
@@ -788,151 +814,194 @@
     <h1>2026 Illinois Progressive<br>Primary Voter Guide</h1>
     <p>Comprehensive candidate profiles, policy ratings, donor data, and controversy press for Illinois Democratic primary races. All races conclude March 17, 2026. More races being added — check back.</p>
     <div class="hero-cards">
-      <div class="hero-card" onclick="showPage('senate')">
-        <div class="race-label">🗳 U.S. Senate</div>
-        <h3>Illinois Senate Race</h3>
-        <p>10 candidates · Replacing retiring Sen. Dick Durbin · Statewide</p>
+
+      <!-- STATEWIDE -->
+      <div class="race-group">
+        <div class="race-group-label">Statewide</div>
+        <div class="race-group-cards">
+          <div class="hero-card" onclick="showPage('senate')">
+            <div class="race-label">U.S. Senate</div>
+            <h3>Illinois Senate Race</h3>
+            <p>10 candidates · Replacing retiring Sen. Dick Durbin · Statewide</p>
+          </div>
+          <div class="hero-card" onclick="showPage('comptroller')">
+            <div class="race-label">IL Comptroller</div>
+            <h3>State Comptroller</h3>
+            <p>4 candidates · Replacing retiring Comptroller Susana Mendoza</p>
+          </div>
+        </div>
       </div>
-      <div class="hero-card" onclick="showPage('comptroller')">
-        <div class="race-label">💼 IL Comptroller</div>
-        <h3>State Comptroller</h3>
-        <p>4 candidates · Replacing retiring Comptroller Susana Mendoza</p>
+
+      <!-- U.S. HOUSE -->
+      <div class="race-group">
+        <div class="race-group-label">U.S. House of Representatives</div>
+        <div class="race-group-cards">
+          <div class="hero-card" onclick="showPage('congress7')">
+            <div class="race-label">U.S. House · IL-7</div>
+            <h3>7th Congressional District</h3>
+            <p>13 candidates · Replacing retiring Rep. Danny Davis · West/South Side Chicago + suburbs</p>
+          </div>
+          <div class="hero-card" onclick="showPage('congress2')">
+            <div class="race-label">U.S. House · IL-2</div>
+            <h3>2nd Congressional District</h3>
+            <p>11 candidates · Replacing Robin Kelly (running for Senate) · South Side + south suburbs</p>
+          </div>
+          <div class="hero-card" onclick="showPage('congress9')">
+            <div class="race-label">U.S. House · IL-9</div>
+            <h3>9th Congressional District</h3>
+            <p>15 candidates · Replacing retiring Rep. Jan Schakowsky · North Side + North Shore</p>
+          </div>
+          <div class="hero-card" onclick="showPage('congress4')">
+            <div class="race-label">U.S. House · IL-4</div>
+            <h3>4th Congressional District</h3>
+            <p>1 candidate on ballot · Sole Democrat Patty Garcia (Chuy Garcia's chief of staff) · SW Side Chicago + western suburbs</p>
+          </div>
+          <div class="hero-card" onclick="showPage('congress8')">
+            <div class="race-label">U.S. House · IL-8</div>
+            <h3>8th Congressional District</h3>
+            <p>8 candidates · Replacing Sen.-hopeful Raja Krishnamoorthi · NW suburbs (Schaumburg, Elgin, Palatine)</p>
+          </div>
+          <div class="hero-card" onclick="showPage('congress13')">
+            <div class="race-label">U.S. House · IL-13</div>
+            <h3>IL-13 — Springfield / Champaign / Metro East</h3>
+            <p>2 candidates · Incumbent Nikki Budzinski (centrist, AIPAC) vs. Dylan Blaha (DSA, Army vet) · Laken Riley Act, Gaza, corporate PAC controversy</p>
+          </div>
+        </div>
       </div>
-      <div class="hero-card" onclick="showPage('congress7')">
-        <div class="race-label">🏛 U.S. House IL-7</div>
-        <h3>7th Congressional District</h3>
-        <p>13 candidates · Replacing retiring Rep. Danny Davis · West/South Side Chicago + suburbs</p>
+
+      <!-- IL STATE SENATE -->
+      <div class="race-group">
+        <div class="race-group-label">Illinois State Senate</div>
+        <div class="race-group-cards">
+          <div class="hero-card" onclick="showPage('sd6')">
+            <div class="race-label">IL State Senate · SD-6</div>
+            <h3>SD-6 — Lakeview / Lincoln Park</h3>
+            <p>2 candidates · Incumbent Sara Feigenholtz (Islamophobic social media, 30-year incumbent) vs. Nick Uniejewski (housing reformer, Tribune endorsed, age 29)</p>
+          </div>
+          <div class="hero-card" onclick="showPage('sd9')">
+            <div class="race-label">IL State Senate · SD-9</div>
+            <h3>SD-9 — Evanston / North Shore</h3>
+            <p>2 candidates · Open seat (Fine for Congress) · Evanston, Glenview, Winnetka · Schakowsky-backed organizer vs. Preckwinkle deputy chief of staff</p>
+          </div>
+          <div class="hero-card" onclick="showPage('sd14')">
+            <div class="race-label">IL State Senate · SD-14</div>
+            <h3>SD-14 — South Side / South Suburbs</h3>
+            <p>3 candidates · Incumbent Emil Jones III (bribery deferred prosecution, DraftKings PAC $263K) vs. Ahmed Karrar (Tribune endorsed) vs. Kenneth Williams</p>
+          </div>
+        </div>
       </div>
-      <div class="hero-card" onclick="showPage('congress2')">
-        <div class="race-label">🏛 U.S. House IL-2</div>
-        <h3>2nd Congressional District</h3>
-        <p>11 candidates · Replacing Robin Kelly (running for Senate) · South Side + south suburbs</p>
+
+      <!-- IL STATE HOUSE -->
+      <div class="race-group">
+        <div class="race-group-label">Illinois State House</div>
+        <div class="race-group-cards">
+          <div class="hero-card" onclick="showPage('hd1')">
+            <div class="race-label">IL State House · HD-1</div>
+            <h3>HD-1 — Brighton Park / Gage Park / Bridgeport</h3>
+            <p>2 candidates · Incumbent Aaron Ortiz (skipped 2024 session, removed from leadership) vs. Guadalupe Rivera (CPS teacher, Tribune endorsed, housing focus)</p>
+          </div>
+          <div class="hero-card" onclick="showPage('hd4')">
+            <div class="race-label">IL State House · HD-4</div>
+            <h3>HD-4 — Humboldt Park / Logan Square / Belmont-Cragin</h3>
+            <p>2 candidates · Incumbent Lilian Jiménez (progressive, Housing Committee chair, Tribune endorsed) vs. Kirk Ortiz (perennial challenger, 2nd attempt)</p>
+          </div>
+          <div class="hero-card" onclick="showPage('hd8')">
+            <div class="race-label">IL State House · HD-8</div>
+            <h3>HD-8 — West Side / Oak Park</h3>
+            <p>4 candidates · Open seat (Ford for Congress) · Austin, Garfield Park, Oak Park, Forest Park, western suburbs · CTU vs. machine vs. pastor vs. 29th Ward</p>
+          </div>
+          <div class="hero-card" onclick="showPage('hd12')">
+            <div class="race-label">IL State House · HD-12</div>
+            <h3>HD-12 — Lincoln Park / Gold Coast</h3>
+            <p>4 candidates · Open seat (Croke for Comptroller) · Near North Side, Lincoln Park, Gold Coast · Meta PAC controversy · Obama alum vs. Lightfoot alum</p>
+          </div>
+          <div class="hero-card" onclick="showPage('hd13')">
+            <div class="race-label">IL State House · HD-13</div>
+            <h3>HD-13 — Rogers Park / Edgewater</h3>
+            <p>5 candidates · Open seat (Huynh for Congress) · Rogers Park, Edgewater, Andersonville, Uptown · Meta PAC controversy · Guard member who'd refuse ICE orders</p>
+          </div>
+          <div class="hero-card" onclick="showPage('hd26')">
+            <div class="race-label">IL State House · HD-26</div>
+            <h3>HD-26 — Hyde Park / South Shore / Beverly</h3>
+            <p>2 candidates · Incumbent Kam Buckner (Speaker pro tempore, Tribune/Sierra Club endorsed) vs. Kenya Franklin (Police District Council member, school choice advocate)</p>
+          </div>
+          <div class="hero-card" onclick="showPage('hd34')">
+            <div class="race-label">IL State House · HD-34</div>
+            <h3>HD-34 — South Side Chicago / Kankakee</h3>
+            <p>2 candidates · Open seat · Aja Kearney (CTU/IFT + $208K DraftKings/Meta PAC ⭐) vs. Cleo Cowley (Hadiya Pendleton's mother, Brady PAC, Tribune endorsed)</p>
+          </div>
+          <div class="hero-card" onclick="showPage('hd40')">
+            <div class="race-label">IL State House · HD-40</div>
+            <h3>HD-40 — Irving Park / Avondale / Albany Park</h3>
+            <p>2 candidates · Incumbent Andrade (machine, $263K DraftKings/Meta PAC ⭐, misleading ICE mailer) vs. Alvelo-Rivera (DSA, CTU, Delia Ramirez)</p>
+          </div>
+          <div class="hero-card" onclick="showPage('hd42')">
+            <div class="race-label">IL State House · HD-42</div>
+            <h3>HD-42 — Glen Ellyn / DuPage County</h3>
+            <p>2 candidates · Competitive seat · LaPlante (AFL-CIO, IFT, elected county board) vs. DeLaRosa (appointed incumbent, Tribune endorsed, moderate)</p>
+          </div>
+          <div class="hero-card" onclick="showPage('hd52')">
+            <div class="race-label">IL State House · HD-52</div>
+            <h3>HD-52 — Barrington / Libertyville</h3>
+            <p>2 candidates · Flip opportunity · Chan Ding (AFL-CIO, IFT, Duckworth; doctored-image mailer controversy) vs. Peterson (47-vote loser in 2024, Tribune endorsed)</p>
+          </div>
+          <div class="hero-card" onclick="showPage('hd84')">
+            <div class="race-label">IL State House · HD-84</div>
+            <h3>HD-84 — Aurora / Oswego / Naperville suburbs</h3>
+            <p>2 candidates · Open seat (Kifowit running for Comptroller) · Jared Ploger (teacher, CTU/IFT, Our Revolution) vs. Saba Haider (DuPage Co. Board, Tribune endorsed, $125K DraftKings PAC ⭐)</p>
+          </div>
+        </div>
       </div>
-      <div class="hero-card" onclick="showPage('congress9')">
-        <div class="race-label">🏛 U.S. House IL-9</div>
-        <h3>9th Congressional District</h3>
-        <p>15 candidates · Replacing retiring Rep. Jan Schakowsky · North Side + North Shore</p>
+
+      <!-- COOK COUNTY -->
+      <div class="race-group">
+        <div class="race-group-label">Cook County</div>
+        <div class="race-group-cards">
+          <div class="hero-card" onclick="showPage('ccbp')">
+            <div class="race-label">Cook County · Board President</div>
+            <h3>County Board President</h3>
+            <p>Toni Preckwinkle (5th term) vs. Ald. Brendan Reilly (42nd) · Progressive machine vs. pro-business moderate · $10B budget, 22,000+ employees</p>
+          </div>
+          <div class="hero-card" onclick="showPage('ccassessor')">
+            <div class="race-label">Cook County · Assessor</div>
+            <h3>County Assessor</h3>
+            <p>Fritz Kaegi (incumbent, 3rd term) vs. Pat Hynes (former Kaegi employee) · Property tax equity vs. commercial fairness</p>
+          </div>
+          <div class="hero-card" onclick="showPage('cc12')">
+            <div class="race-label">Cook County · Commissioner 12th</div>
+            <h3>Commissioner — 12th District</h3>
+            <p>3 candidates · Open seat (Degnen retiring) · Granato (machine-linked frontrunner) vs. Wilson (progressive LGBTQ+) vs. White (reform/ethics) — River North, Wicker Park, Lincoln Park, Portage Park</p>
+          </div>
+          <div class="hero-card" onclick="showPage('bor2')">
+            <div class="race-label">Cook County · Board of Review 2nd</div>
+            <h3>Board of Review — 2nd District</h3>
+            <p>2 candidates · 2-year partial term · Incumbent Samantha Steele (property tax expertise, DUI scandal) vs. Liz Nicholson (career Dem operative, powerful institutional backing)</p>
+          </div>
+          <div class="hero-card" onclick="showPage('mwrd')">
+            <div class="race-label">Cook County · MWRD 6-Year</div>
+            <h3>MWRD — 6-Year Term</h3>
+            <p>Vote for up to 3 of 4 candidates · Flood control, clean water &amp; Chicago River for 5M+ residents · $1.4B budget · 3 incumbents vs. 1 environmental-lawyer challenger</p>
+          </div>
+          <div class="hero-card" onclick="showPage('mwrd2')">
+            <div class="race-label">Cook County · MWRD 2-Year</div>
+            <h3>MWRD — 2-Year Special Election</h3>
+            <p>Cameron "Cam" Davis (uncontested) · Obama's "Great Lakes Czar" · Only Clean Water Act attorney on the board · Win here = win in November</p>
+          </div>
+        </div>
       </div>
-      <div class="hero-card" onclick="showPage('congress4')">
-        <div class="race-label">🏛 U.S. House IL-4</div>
-        <h3>4th Congressional District</h3>
-        <p>1 candidate on ballot · Sole Democrat Patty Garcia (Chuy Garcia's chief of staff) · SW Side Chicago + western suburbs</p>
+
+      <!-- IL DEMOCRATIC PARTY -->
+      <div class="race-group">
+        <div class="race-group-label">Illinois Democratic Party</div>
+        <div class="race-group-cards">
+          <div class="hero-card" onclick="showPage('dscc7')">
+            <div class="race-label">State Central Committeeperson · 7th CD</div>
+            <h3>State Central Committeeperson — 7th Congressional District</h3>
+            <p>6 candidates across 2 seats (vote for 1 man, 1 woman) · Speaker Welch vs. Tim Thomas (man); Emma Mitts vs. Lakesia Collins vs. Conyears-Ervin vs. Mary Larry (woman)</p>
+          </div>
+        </div>
       </div>
-      <div class="hero-card" onclick="showPage('congress8')">
-        <div class="race-label">🏛 U.S. House IL-8</div>
-        <h3>8th Congressional District</h3>
-        <p>8 candidates · Replacing Sen.-hopeful Raja Krishnamoorthi · NW suburbs (Schaumburg, Elgin, Palatine)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('ccbp')">
-        <div class="race-label">🏙 Cook County</div>
-        <h3>County Board President</h3>
-        <p>Toni Preckwinkle (5th term) vs. Ald. Brendan Reilly (42nd) · Progressive machine vs. pro-business moderate · $10B budget, 22,000+ employees</p>
-      </div>
-      <div class="hero-card" onclick="showPage('ccassessor')">
-        <div class="race-label">🏙 Cook County</div>
-        <h3>County Assessor</h3>
-        <p>Fritz Kaegi (incumbent, 3rd term) vs. Pat Hynes (former Kaegi employee) · Property tax equity vs. commercial fairness</p>
-      </div>
-      <div class="hero-card" onclick="showPage('mwrd')">
-        <div class="race-label">💧 Cook County</div>
-        <h3>MWRD — 6-Year Term</h3>
-        <p>Vote for up to 3 of 4 candidates · Flood control, clean water &amp; Chicago River for 5M+ residents · $1.4B budget · 3 incumbents vs. 1 environmental-lawyer challenger</p>
-      </div>
-      <div class="hero-card" onclick="showPage('mwrd2')">
-        <div class="race-label">💧 Cook County</div>
-        <h3>MWRD — 2-Year Special Election</h3>
-        <p>Cameron "Cam" Davis (uncontested) · Obama's "Great Lakes Czar" · Only Clean Water Act attorney on the board · Win here = win in November</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd8')">
-        <div class="race-label">🏛 IL State House · HD-8</div>
-        <h3>HD-8 — West Side / Oak Park</h3>
-        <p>4 candidates · Open seat (Ford for Congress) · Austin, Garfield Park, Oak Park, Forest Park, western suburbs · CTU vs. machine vs. pastor vs. 29th Ward</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd12')">
-        <div class="race-label">🏛 IL State House · HD-12</div>
-        <h3>HD-12 — Lincoln Park / Gold Coast</h3>
-        <p>4 candidates · Open seat (Croke for Comptroller) · Near North Side, Lincoln Park, Gold Coast · Meta PAC controversy · Obama alum vs. Lightfoot alum</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd13')">
-        <div class="race-label">🏛 IL State House · HD-13</div>
-        <h3>HD-13 — Rogers Park / Edgewater</h3>
-        <p>5 candidates · Open seat (Huynh for Congress) · Rogers Park, Edgewater, Andersonville, Uptown · Meta PAC controversy · Guard member who'd refuse ICE orders</p>
-      </div>
-      <div class="hero-card" onclick="showPage('sd9')">
-        <div class="race-label">🏛 IL State Senate · SD-9</div>
-        <h3>SD-9 — Evanston / North Shore</h3>
-        <p>2 candidates · Open seat (Fine for Congress) · Evanston, Glenview, Winnetka · Schakowsky-backed organizer vs. Preckwinkle deputy chief of staff</p>
-      </div>
-      <div class="hero-card" onclick="showPage('congress13')">
-        <div class="race-label">🏛 U.S. House · IL-13</div>
-        <h3>IL-13 Congress — Springfield / Champaign / Metro East</h3>
-        <p>2 candidates · Incumbent Nikki Budzinski (centrist, AIPAC) vs. Dylan Blaha (DSA, Army vet) · Laken Riley Act, Gaza, corporate PAC controversy</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd34')">
-        <div class="race-label">🏛 IL State House · HD-34</div>
-        <h3>HD-34 — South Side Chicago / Kankakee</h3>
-        <p>2 candidates · Open seat · Aja Kearney (CTU/IFT + $208K DraftKings/Meta PAC ⭐) vs. Cleo Cowley (Hadiya Pendleton's mother, Brady PAC, Tribune endorsed)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd40')">
-        <div class="race-label">🏛 IL State House · HD-40</div>
-        <h3>HD-40 — Irving Park / Avondale / Albany Park</h3>
-        <p>2 candidates · Incumbent Andrade (machine, $263K DraftKings/Meta PAC ⭐, misleading ICE mailer) vs. Alvelo-Rivera (DSA, CTU, Delia Ramirez)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd42')">
-        <div class="race-label">🏛 IL State House · HD-42</div>
-        <h3>HD-42 — Glen Ellyn / DuPage County</h3>
-        <p>2 candidates · Competitive seat · LaPlante (AFL-CIO, IFT, elected county board) vs. DeLaRosa (appointed incumbent, Tribune endorsed, moderate)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd52')">
-        <div class="race-label">🏛 IL State House · HD-52</div>
-        <h3>HD-52 — Barrington / Libertyville</h3>
-        <p>2 candidates · Flip opportunity · Chan Ding (AFL-CIO, IFT, Duckworth; doctored-image mailer controversy) vs. Peterson (47-vote loser in 2024, Tribune endorsed)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('sd14')">
-        <div class="race-label">🏛 IL State Senate · SD-14</div>
-        <h3>SD-14 — South Side / South Suburbs</h3>
-        <p>3 candidates · Incumbent Emil Jones III (bribery deferred prosecution, DraftKings PAC $263K) vs. Ahmed Karrar (Tribune endorsed) vs. Kenneth Williams</p>
-      </div>
-      <div class="hero-card" onclick="showPage('sd6')">
-        <div class="race-label">🏛 IL State Senate · SD-6</div>
-        <h3>SD-6 — Lakeview / Lincoln Park</h3>
-        <p>2 candidates · Incumbent Sara Feigenholtz (Islamophobic social media, 30-year incumbent) vs. Nick Uniejewski (housing reformer, Tribune endorsed, age 29)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd84')">
-        <div class="race-label">🏛 IL State House · HD-84</div>
-        <h3>HD-84 — Aurora / Oswego / Naperville suburbs</h3>
-        <p>2 candidates · Open seat (Kifowit running for Comptroller) · Jared Ploger (teacher, CTU/IFT, Our Revolution) vs. Saba Haider (DuPage Co. Board, Tribune endorsed, $125K DraftKings PAC ⭐)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd26')">
-        <div class="race-label">🏛 IL State House · HD-26</div>
-        <h3>HD-26 — Hyde Park / South Shore / Beverly</h3>
-        <p>2 candidates · Incumbent Kam Buckner (Speaker pro tempore, Tribune/Sierra Club endorsed) vs. Kenya Franklin (Police District Council member, school choice advocate)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd1')">
-        <div class="race-label">🏛 IL State House · HD-1</div>
-        <h3>HD-1 — Brighton Park / Gage Park / Bridgeport</h3>
-        <p>2 candidates · Incumbent Aaron Ortiz (skipped 2024 session, removed from leadership) vs. Guadalupe Rivera (CPS teacher, Tribune endorsed, housing focus)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('hd4')">
-        <div class="race-label">🏛 IL State House · HD-4</div>
-        <h3>HD-4 — Humboldt Park / Logan Square / Belmont-Cragin</h3>
-        <p>2 candidates · Incumbent Lilian Jiménez (progressive, Housing Committee chair, Tribune endorsed) vs. Kirk Ortiz (perennial challenger, 2nd attempt)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('dscc7')">
-        <div class="race-label">🗳 IL Dem State Central Committeeperson · 7th CD</div>
-        <h3>State Central Committeeperson — 7th Congressional District</h3>
-        <p>6 candidates across 2 seats (vote for 1 man, 1 woman) · Speaker Welch vs. Tim Thomas (man); Emma Mitts vs. Lakesia Collins vs. Conyears-Ervin vs. Mary Larry (woman)</p>
-      </div>
-      <div class="hero-card" onclick="showPage('cc12')">
-        <div class="race-label">🏙 Cook County Commissioner · 12th District</div>
-        <h3>Cook County Commissioner — 12th District</h3>
-        <p>3 candidates · Open seat (Degnen retiring) · Granato (machine-linked frontrunner) vs. Wilson (progressive LGBTQ+) vs. White (reform teacher) — covers River North, Wicker Park, Lincoln Park, Portage Park</p>
-      </div>
-      <div class="hero-card" onclick="showPage('bor2')">
-        <div class="race-label">📋 Cook County Board of Review · 2nd District</div>
-        <h3>Cook County Board of Review — 2nd District</h3>
-        <p>2 candidates · 2-year partial term · Incumbent Samantha Steele (property tax expertise, DUI scandal) vs. Liz Nicholson (career Dem operative, powerful institutional backing)</p>
-      </div>
+
     </div>
   </div>
 
